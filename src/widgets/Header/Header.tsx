@@ -31,14 +31,15 @@ export async function Header() {
       <div className={styles.mobileTabletOnly}>
         <div className={styles.burgerButton}>
           {/* BurgerMenu сам управляет позиционированием меню */}
-          <BurgerMenu navigationData={navigationData} />
+          {navigationData && <BurgerMenu navigationData={navigationData} />}
         </div>
       </div>
 
       {/* Desktop: Navigation Bar */}
       <div className={styles.desktopOnly}>
         <div className={styles.desktopNav}>
-          <DesktopNavigation navigationData={navigationData} />
+          {navigationData && <DesktopNavigation navigationData={navigationData}/>}
+          {/* <DesktopNavigation navigationData={navigationData} /> */}
         </div>
       </div>
     </header>

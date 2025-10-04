@@ -1,0 +1,66 @@
+.nav {
+  position: fixed;
+  background: #08050d;
+  border-radius: 36px;
+  box-shadow: 0 8px 18px 0 rgba(0, 0, 0, 0.25);
+  padding: 6px;
+  top: 36px;
+  display: flex;
+  align-items: center;
+
+  /* Laptop: 1200px */
+  @media (min-width: 1200px) and (max-width: 1439px) {
+    right: 223px;
+  }
+
+  /* Desktop: 1440px */
+  @media (min-width: 1440px) and (max-width: 1919px) {
+    right: 382.5px;
+  }
+
+  /* Large: 1920px */
+  @media (min-width: 1920px) {
+    right: 622.5px;
+    top: 42px;
+  }
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: white;
+    color: #08050d;
+
+    & svg path {
+      stroke: #08050d;
+    }
+  }
+}
+
+.menuItems {
+  display: flex;
+}
+
+.menuItem {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
+
+  &:hover {
+    background: white; 
+    color: #08050d; 
+  }
+}

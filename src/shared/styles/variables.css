@@ -1,0 +1,31 @@
+
+
+:root {
+  /* Typography */
+  --font-family: 'Lato', sans-serif;
+  
+  /* Breakpoints - из ваших констант */
+  --breakpoint-mobile: 375px;
+  --breakpoint-tablet: 744px;
+  --breakpoint-laptop: 1200px;
+  --breakpoint-desktop: 1440px;
+  --breakpoint-large: 1920px;
+  
+  /* Colors */
+  --color-black: #08050D;
+  --color-white: #FFF;
+  
+  /* Spacing - из Figma */
+  --spacing-xs: 6px;
+  --spacing-sm: 12px;
+  --spacing-md: 18px;
+  --spacing-lg: 36px;
+  --spacing-xl: 42px;
+  
+  /* Border radius */
+  --border-radius-large: 36px;
+  
+  /* Effects */
+  --shadow-y-8: 0 8px 18px 0 rgba(0, 0, 0, 0.25);
+  --backdrop-blur: blur(18px);
+}

@@ -1,13 +1,27 @@
+/* Импортируем переменные */
+@import "../shared/styles/variables.css";
+
+/* Шрифт Lato */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+html,
+body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family); /* ← Используем переменную Lato */
+  background: var(--color-white) ;
+  color: var(--color-black); /* ← Используем переменную */
+  /* background-color: #FFFFFF !important; */
+}
+
+body {
+  /* background: #ffffff; */
 }
 
 a {

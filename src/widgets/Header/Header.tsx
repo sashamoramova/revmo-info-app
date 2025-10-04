@@ -1,57 +1,46 @@
-'use client';
+/* filepath: c:\Users\Пользователь\Desktop\test\revmo-info-app\src\widgets\Header\Header.tsx */
+import { NavigationApi } from "@/entities/navigation";
+import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
+import { DesktopNavigation } from "./DesktopNavigation/DesktopNavigation";
+import styles from "./Header.module.css";
 
-import { useState, useEffect } from 'react';
-import { BREAKPOINTS } from '@/shared/constants';
-import { NavigationApi, type INavigationData } from '@/entities/navigation';
-import { BurgerMenu } from './BurgerMenu/BurgerMenu';
-import { DesktopNavigation } from './DesktopNavigation/DesktopNavigation';
-import styles from './Header.module.css';
+// const FALLBACK_NAVIGATION = {
+//   logo: { link: "/", src: "", alt: "Revmo Logo" },
+//   menu: [
+//     { id: "1", label: "Назад к сайту", link: "https://revmo.info" },
+//     { id: "2", label: "О приложении", link: "/about" },
+//     { id: "3", label: "Возможности", link: "/features" },
+//     { id: "4", label: "Общение", link: "/chat" },
+//     { id: "5", label: "Отзывы", link: "/reviews" },
+//   ],
+// };
 
-export function Header() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
-  const [navigationData, setNavigationData] = useState<INavigationData | null>(null);
-  
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setIsMobile(width < BREAKPOINTS.TABLET);
-      setIsTablet(width >= BREAKPOINTS.TABLET && width < BREAKPOINTS.LAPTOP);
-    };
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+export async function Header() {
+  let navigationData;
 
-  useEffect(() => {
-    const fetchNavigation = async () => {
-      try {
-        const data = await NavigationApi.getNavigation();
-        setNavigationData(data);
-      } catch (error) {
-        console.error('Failed to fetch navigation:', error);
-      }
-    };
-    
-    fetchNavigation();
-  }, []);
-
-  if (!navigationData) {
-    return <div>Loading...</div>;
+  try {
+    navigationData = await NavigationApi.getNavigation();
+  } catch (error) {
+    console.error("Failed to fetch navigation:", error);
+    // navigationData = FALLBACK_NAVIGATION;
   }
 
   return (
     <header className={styles.header}>
-      {(isMobile || isTablet) ? (
-        <BurgerMenu 
-          navigationData={navigationData}
-          isMobile={isMobile}
-          isTablet={isTablet}
-        />
-      ) : (
-        <DesktopNavigation navigationData={navigationData} />
-      )}
+      {/* Mobile + Tablet: Только кнопка в fixed контейнере */}
+      <div className={styles.mobileTabletOnly}>
+        <div className={styles.burgerButton}>
+          {/* BurgerMenu сам управляет позиционированием меню */}
+          <BurgerMenu navigationData={navigationData} />
+        </div>
+      </div>
+
+      {/* Desktop: Navigation Bar */}
+      <div className={styles.desktopOnly}>
+        <div className={styles.desktopNav}>
+          <DesktopNavigation navigationData={navigationData} />
+        </div>
+      </div>
     </header>
   );
 }

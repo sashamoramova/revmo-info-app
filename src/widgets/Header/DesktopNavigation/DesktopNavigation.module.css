@@ -1,4 +1,5 @@
-.nav {
+.desktopNav {
+  /* Переименовать .nav в .desktopNav */
   position: fixed;
   background: #08050d;
   border-radius: 36px;
@@ -7,6 +8,7 @@
   top: 36px;
   display: flex;
   align-items: center;
+  z-index: 100; /* Меньший z-index чем у бургер-меню */
 
   /* Laptop: 1200px */
   @media (min-width: 1200px) and (max-width: 1439px) {
@@ -60,7 +62,7 @@
   white-space: nowrap;
 
   &:hover {
-    background: white; 
-    color: #08050d; 
+    background: white;
+    color: #08050d;
   }
 }

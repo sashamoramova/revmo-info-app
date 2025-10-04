@@ -5,9 +5,10 @@ interface DesktopNavigationProps {
   navigationData: INavigationData;
 }
 
+// Убираем 'use client'
 export function DesktopNavigation({ navigationData }: DesktopNavigationProps) {
   return (
-    <nav className={styles.nav}>
+    <nav className={styles.desktopNav}>
       <a href={navigationData.logo.link} className={styles.backButton}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

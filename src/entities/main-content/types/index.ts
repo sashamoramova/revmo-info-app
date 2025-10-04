@@ -1,4 +1,4 @@
-// Базовые интерфейсы
+//базовые интерфейсы
 export interface IButton {
   enabled: boolean;
   label: string;
@@ -15,7 +15,7 @@ export interface ISocial {
   url: string;
 }
 
-// Группирующие интерфейсы
+//группирующие интерфейсы
 export interface IButtons {
   ios: IButton;
   android: IButton;
@@ -35,7 +35,7 @@ export interface ISocials {
   vkVideo: ISocial;
 }
 
-// Основные данные (как ваш ITaskRowData)
+//основные данные
 export interface IMainContentData {
   title: string;
   subtitle: string;
@@ -45,12 +45,12 @@ export interface IMainContentData {
   socials: ISocials;
 }
 
-// Типы для удобства (как ваш TaskArrayType)
+//типы для удобства
 export type ButtonKeys = keyof IButtons;
 export type SocialKeys = keyof ISocials;
 export type SidebarKeys = keyof ISidebar;
 
-// Энумы для констант (как ваш TASK_ACTION_TYPE)
+//для констант
 export enum SOCIAL_TYPES {
   VK = 'vk',
   TELEGRAM = 'telegram',
@@ -64,7 +64,7 @@ export enum BUTTON_TYPES {
   APK = 'apk'
 }
 
-// Общий тип ответа API
+//тип ответа API
 export interface IApiResponse<T> {
   data?: T;
   message?: string;

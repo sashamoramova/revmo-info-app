@@ -14,7 +14,7 @@ export interface INavigationData {
   menu: IMenuItem[];
 }
 
-// Можно добавить общий тип ответа (как у вас IServerResponse)
+//тип ответа API
 export interface IApiResponse<T> {
   data?: T;
   message?: string;

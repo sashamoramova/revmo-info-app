@@ -1,21 +1,16 @@
 module.exports = {
   plugins: {
-    'postcss-preset-env': {
-      stage: 2, // Уровень современности CSS (0-4)
+    "postcss-preset-env": {
+      stage: 2,
       features: {
-        'nesting-rules': true,        // Вложенные стили как в Sass
-        'custom-properties': true,    // CSS переменные
-        'custom-media-queries': true, // Кастомные медиа-запросы
-        'color-functional-notation': true // Современная нотация цветов
-      }
+        "nesting-rules": true,
+        "custom-properties": true,
+        "custom-media-queries": true,
+        "color-functional-notation": true,
+      },
     },
     autoprefixer: {
-      // Автоматические вендорные префиксы
-      overrideBrowserslist: [
-        '> 1%',
-        'last 2 versions',
-        'not dead'
-      ]
-    }
-  }
-}
+      overrideBrowserslist: ["> 1%", "last 2 versions", "not dead"],
+    },
+  },
+};

@@ -14,7 +14,7 @@ export interface IReviewsData {
   data: IReview[];
 }
 
-// Общий тип ответа API (если нужен)
+//тип ответа API
 export interface IApiResponse<T> {
   data?: T;
   message?: string;

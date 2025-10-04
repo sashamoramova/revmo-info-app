@@ -5,7 +5,7 @@ export const axiosInstance = axios.create({
   timeout: 10000,
 });
 
-// Простой interceptor для логов (опционально)
+//interceptor для логов
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {

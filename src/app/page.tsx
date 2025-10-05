@@ -6,7 +6,9 @@
 //     </main>
 //   )
 // }
+import { Footer } from "@/widgets/Footer/Footer";
 import { Header } from "@/widgets/Header";
+// Footer
 
 export default function HomePage() {
   return (
@@ -28,6 +30,8 @@ export default function HomePage() {
           <p>Скроллите страницу чтобы проверить фиксированный Header</p>
         </div>
       </main>
+
+      <Footer />
     </>
   );
 }

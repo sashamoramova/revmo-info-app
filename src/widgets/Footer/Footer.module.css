@@ -1,0 +1,107 @@
+@import "../../shared/styles/media.css";
+
+.footer {
+  border: 3px solid red;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: var(--color-extra-light);
+
+  @media (--mobile) {
+    height: 193px;
+  }
+
+  @media (--tablet) {
+    height: 139px;
+    padding: 24px;
+  }
+
+  @media (--laptop) {
+    height: 134px;
+    gap: 120px;
+    padding: 24px;
+  }
+
+  @media (--desktop) {
+    height: 134px;
+    gap: 120px;
+    padding: 24px;
+  }
+
+  @media (--large) {
+    height: 124px;
+    padding: 24px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  gap: 24px;
+
+  @media (--mobile) {
+    flex-direction: column;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialLink {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+
+  /* &:hover {
+    transform: scale(1.05);
+  } */
+}
+
+.socialIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: filter 0.3s ease;
+}
+
+/* общий hover-эффект для всех */
+.socialIcon:hover {
+  filter: invert(1);
+}
+
+/* иконки */
+.vk {
+  background-image: url("/icons/vk-white.svg");
+}
+
+.telegram {
+  background-image: url("/icons/telegram-white.svg");
+}
+
+.dzen {
+  background-image: url("/icons/dzen-white.svg");
+}
+
+.vkVideo {
+  background-image: url("/icons/vk-video-white.svg");
+}

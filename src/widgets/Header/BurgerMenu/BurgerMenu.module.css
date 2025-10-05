@@ -1,47 +1,86 @@
+@custom-media --mobile (max-width: 743px);
+@custom-media --tablet (min-width: 744px) and (max-width: 1199px);
+@custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
+@custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
+@custom-media --large (min-width: 1920px);
+
+/* Скрываем чекбокс */
+.menuToggle {
+  display: none;
+}
+
+/* BurgerMenu.module.css */
 .burgerButton {
   position: fixed;
-  background: #08050d;
-  border: none;
-  border-radius: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
 
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  /* Mobile: 375px */
-  @media (max-width: 743px) {
+  @media (--mobile) {
     width: 48px;
     height: 48px;
-    padding: 12px;
-    top: 12px;
-    left: 12px;
+    padding: var(--spacing-sm);
+    left: var(--spacing-sm);
+    top: var(--spacing-sm);
   }
 
-  /* Tablet: 744px */
-  @media (min-width: 744px) and (max-width: 1199px) {
+  @media (--tablet) {
     width: 60px;
     height: 60px;
-    padding: 18px;
-    top: 36px;
-    left: 36px;
+    padding: var(--spacing-md);
+    left: var(--spacing-lg);
+    top: var(--spacing-lg);
+  }
+
+  /* @media (--laptop) {
+    display: none;
+  }
+
+  @media (--desktop) {
+    display: none;
+  }
+
+  @media (--large) {
+    display: none;
+  } */
+}
+
+/* Показываем разные иконки */
+.mobileIcon {
+  display: block;
+}
+
+.tabletIcon {
+  display: none;
+}
+
+@media (--tablet) {
+  .mobileIcon {
+    display: none;
+  }
+
+  .tabletIcon {
+    display: block;
   }
 }
 
+/* Оверлей (скрыт по умолчанию) */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 998;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+/* Меню (ваши оригинальные стили) */
 .menu {
   position: fixed;
   top: 50%;
@@ -49,28 +88,34 @@
   transform: translate(-50%, -50%);
   background: #08050d;
   border-radius: 24px;
-
   padding: 24px;
   z-index: 999;
-
   min-width: 145px;
   width: auto;
+
+  /* Скрыто по умолчанию */
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-
   gap: 18px;
 }
 
 .menuItem {
-  color: var(--White, #fff);
-
+  color: var(--color-white, #fff);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 
   &:hover {
     background: linear-gradient(312deg, #bdfff4 -0.21%, #d93497 100.23%);
@@ -79,4 +124,16 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
+}
+
+/* когда чекбокс checked - показываем меню */
+.menuToggle:checked ~ .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menuToggle:checked ~ .menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
 }

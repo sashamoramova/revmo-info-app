@@ -24,7 +24,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "postcss": "^8.5.6",
-    "postcss-preset-env": "^10.4.0",
+    "postcss-custom-media": "^11.0.6",
+    "postcss-nested": "^7.0.2",
     "typescript": "^5"
   }
 }

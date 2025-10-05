@@ -1,4 +1,3 @@
-/* filepath: c:\Users\Пользователь\Desktop\test\revmo-info-app\src\widgets\Header\Header.tsx */
 import { NavigationApi } from "@/entities/navigation";
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { DesktopNavigation } from "./DesktopNavigation/DesktopNavigation";
@@ -38,7 +37,9 @@ export async function Header() {
       {/* Desktop: Navigation Bar */}
       <div className={styles.desktopOnly}>
         <div className={styles.desktopNav}>
-          {navigationData && <DesktopNavigation navigationData={navigationData}/>}
+          {navigationData && (
+            <DesktopNavigation navigationData={navigationData} />
+          )}
           {/* <DesktopNavigation navigationData={navigationData} /> */}
         </div>
       </div>

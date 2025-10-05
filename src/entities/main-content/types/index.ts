@@ -45,7 +45,7 @@ export interface IMainContentData {
   socials: ISocials;
 }
 
-//типы для удобства
+//типы 
 export type ButtonKeys = keyof IButtons;
 export type SocialKeys = keyof ISocials;
 export type SidebarKeys = keyof ISidebar;

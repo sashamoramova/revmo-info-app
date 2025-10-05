@@ -1,3 +1,9 @@
+@custom-media --mobile (max-width: 743px);
+@custom-media --tablet (min-width: 744px) and (max-width: 1199px);
+@custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
+@custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
+@custom-media --large (min-width: 1920px);
+
 /* Скрываем чекбокс */
 .menuToggle {
   display: none;
@@ -11,8 +17,7 @@
   justify-content: center;
   cursor: pointer;
 
-  /* Mobile: до 743px */
-  @media (max-width: 743px) {
+  @media (--mobile) {
     width: 48px;
     height: 48px;
     padding: var(--spacing-sm);
@@ -20,14 +25,25 @@
     top: var(--spacing-sm);
   }
 
-  /* Tablet: 744px - 1199px */
-  @media (min-width: 744px) and (max-width: 1199px) {
+  @media (--tablet) {
     width: 60px;
     height: 60px;
     padding: var(--spacing-md);
     left: var(--spacing-lg);
     top: var(--spacing-lg);
   }
+
+  /* @media (--laptop) {
+    display: none;
+  }
+
+  @media (--desktop) {
+    display: none;
+  }
+
+  @media (--large) {
+    display: none;
+  } */
 }
 
 /* Показываем разные иконки */
@@ -39,7 +55,7 @@
   display: none;
 }
 
-@media (min-width: 744px) and (max-width: 1199px) {
+@media (--tablet) {
   .mobileIcon {
     display: none;
   }
@@ -110,7 +126,7 @@
   }
 }
 
-/* МАГИЯ: Когда чекбокс checked - показываем меню */
+/* когда чекбокс checked - показываем меню */
 .menuToggle:checked ~ .overlay {
   opacity: 1;
   visibility: visible;

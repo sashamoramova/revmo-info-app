@@ -1,5 +1,10 @@
+@custom-media --mobile (max-width: 743px);
+@custom-media --tablet (min-width: 744px) and (max-width: 1199px);
+@custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
+@custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
+@custom-media --large (min-width: 1920px);
+
 .desktopNav {
-  /* Переименовать .nav в .desktopNav */
   position: fixed;
   background: #08050d;
   border-radius: 36px;
@@ -10,18 +15,15 @@
   align-items: center;
   z-index: 100; /* Меньший z-index чем у бургер-меню */
 
-  /* Laptop: 1200px */
-  @media (min-width: 1200px) and (max-width: 1439px) {
+  @media (--laptop) {
     right: 223px;
   }
 
-  /* Desktop: 1440px */
-  @media (min-width: 1440px) and (max-width: 1919px) {
+  @media (--desktop) {
     right: 382.5px;
   }
 
-  /* Large: 1920px */
-  @media (min-width: 1920px) {
+  @media (--large) {
     right: 622.5px;
     top: 42px;
   }

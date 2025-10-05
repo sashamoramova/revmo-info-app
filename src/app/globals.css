@@ -1,8 +1,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"); */
 
 :root {
-  /* --font-family: "Lato", sans-serif; */
-
+  
   --breakpoint-mobile: 375px;
   --breakpoint-tablet: 744px;
   --breakpoint-laptop: 1200px;
@@ -45,8 +44,7 @@
   padding: 0;
 }
 
-html,
-body {
+html, body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: var(--font-lato), sans-serif; /* Исправлено */

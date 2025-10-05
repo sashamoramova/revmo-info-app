@@ -2,7 +2,7 @@
 module.exports = {
   plugins: {
     'postcss-nested': {},
-    'postcss-custom-media': {}, // БЕЗ importFrom!
+    'postcss-custom-media': {},
     'autoprefixer': {
       overrideBrowserslist: ["> 1%", "last 2 versions", "not dead"],
     }

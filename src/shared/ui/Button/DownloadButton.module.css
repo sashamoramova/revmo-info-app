@@ -1,0 +1,56 @@
+.downloadButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: #f9fafb;
+  border-radius: 999px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.downloadButton:hover {
+  background: #e5e7eb;
+}
+
+/* Контейнер под SVG */
+.iconCircle {
+  /* width: 40px;
+  height: 40px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.downloadButton:hover .iconCircle {
+  transform: translateX(100%);
+  /* opacity: 0; */
+}
+
+/* SVG внутри */
+.iconSvg {
+  display: block;
+  /* width: 20px;
+  height: 20px; */
+}
+
+.buttonText {
+  font-size: 1rem;
+  color: #6b7280;
+  transition: color 0.3s ease;
+  /* white-space: nowrap; */
+}
+
+.arrow {
+  color: #d1d5db;
+  font-size: 1.25rem;
+  margin-left: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.downloadButton:hover .buttonText,
+.downloadButton:hover .arrow {
+  color: #8b5cf6; /* фиолетовый */
+}

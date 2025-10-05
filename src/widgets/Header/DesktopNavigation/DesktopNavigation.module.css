@@ -16,16 +16,16 @@
   z-index: 100; /* Меньший z-index чем у бургер-меню */
 
   @media (--laptop) {
-    right: 223px;
+    /* right: 223px; */
   }
 
   @media (--desktop) {
-    right: 382.5px;
+    /* right: 382.5px; */
   }
 
   @media (--large) {
-    right: 622.5px;
-    top: 42px;
+    /* right: 622.5px; */
+    /* top: 42px; */
   }
 }
 

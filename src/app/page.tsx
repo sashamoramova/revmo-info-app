@@ -1,6 +1,7 @@
+import Head from "next/head";
 import { Footer } from "@/widgets/Footer/Footer";
 import { Header } from "@/widgets/Header";
-import {MainSection}  from "@/widgets/MainSection/MainSection";
+import { MainSection } from "@/widgets/MainSection/MainSection";
 import { MainApi } from "@/entities/main-content/api/mainApi";
 
 export default async function HomePage() {
@@ -8,6 +9,9 @@ export default async function HomePage() {
 
   return (
     <>
+      <Head>
+        <link rel="preload" href="/icons/download-button.svg" as="image" />
+      </Head>
       <Header />
 
       <main>

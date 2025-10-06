@@ -1,0 +1,85 @@
+@custom-media --mobile (max-width: 743px);
+@custom-media --tablet (min-width: 744px) and (max-width: 1199px);
+
+.platformButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 36px;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  @media (--mobile) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 8px; */
+    /* padding: 16px 20px; */
+    /* padding: 10px 16px; */
+  }
+}
+
+.platformIcon {
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+
+  @media (--mobile) {
+    position: static;
+    opacity: 1;
+  }
+}
+
+.buttonText {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease;
+  flex: 0 1 auto;
+
+  @media (--mobile) {
+    position: static;
+    transform: none;
+    text-align: center;
+  }
+}
+
+.downloadIcon {
+  position: absolute;
+  right: 12px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+
+  @media (--mobile) {
+    right: 0px;
+
+    position: static;
+    /* right: auto; */
+    /* margin-left: 8px;  */
+    margin: 0px;
+    padding: 0px;
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+.platformButton:hover .platformIcon {
+  opacity: 0;
+}
+
+.platformButton:hover .buttonText {
+  transform: translateX(-25px);
+}
+
+.platformButton:hover .downloadIcon {
+  opacity: 1;
+}

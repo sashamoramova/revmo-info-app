@@ -1,4 +1,4 @@
-import DownloadButton from "@/shared/ui/Button/DownloadButton";
+import DownloadButton from "@/shared/ui/downloadButton/downloadButton";
 import styles from "./DesktopVersion.module.css";
 import { IMainContentData } from "@/entities/main-content/types";
 

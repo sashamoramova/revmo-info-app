@@ -38,3 +38,20 @@
     display: block;
   }
 }
+
+
+.mobileTabletContainer {
+  display: block;
+
+  @media (--laptop) {
+    display: none;
+  }
+}
+
+.desktopContainer {
+  display: none;
+
+  @media (--laptop) {
+    display: block;
+  }
+}

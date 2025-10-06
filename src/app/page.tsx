@@ -15,11 +15,8 @@ export default async function HomePage() {
       <Header />
 
       <main>
-        {/* <h1>Revmo Info App</h1>
-        <p>Главная страница приложения</p> */}
         <MainSection data={mainData} />
 
-        {/* проверка скролла */}
         <div
           style={{
             height: "2000px",

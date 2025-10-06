@@ -1,4 +1,5 @@
 import styles from "./downloadButton.module.css";
+// import Image from "next/image";
 
 // Вынесем SVG в константу чтобы не создавать каждый раз
 const ArrowIcon = ({ color }: { color: string }) => (
@@ -27,7 +28,7 @@ export default function DownloadButton() {
           src="/icons/download-button.svg"
           alt="downloadButton"
           className={styles.iconSvg}
-          loading="lazy" // Добавляем ленивую загрузку
+          loading="lazy"
         />
       </div>
       <div className={styles.rightSide}>

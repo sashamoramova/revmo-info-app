@@ -1,5 +1,6 @@
 /* filepath: c:\Users\Пользователь\Desktop\test\revmo-info-app\src\widgets\Header\BurgerMenu\BurgerMenu.tsx */
 import { type INavigationData } from "@/entities/navigation";
+import Image from "next/image";
 import styles from "./BurgerMenu.module.css";
 
 interface BurgerMenuProps {
@@ -9,28 +10,38 @@ interface BurgerMenuProps {
 export function BurgerMenu({ navigationData }: BurgerMenuProps) {
   return (
     <>
-      {/* Скрытый чекбокс для состояния */}
       <input type="checkbox" id="burger-toggle" className={styles.menuToggle} />
 
-      {/* Кнопка-лейбл для чекбокса */}
       <label
         htmlFor="burger-toggle"
         className={styles.burgerButton}
         aria-label="Toggle menu"
       >
-        {/* Разные иконки для mobile/tablet */}
         <div className={styles.mobileIcon}>
-          <img src="/icons/burger-menu-mobile.svg" alt="Open menu" />
+          <Image
+            src="/icons/burger-menu-mobile.svg"
+            alt="Open menu"
+            width={48}
+            height={48}
+            className={styles.menuIcon}
+            priority
+          />
         </div>
         <div className={styles.tabletIcon}>
-          <img src="/icons/burger-menu-tablet.svg" alt="Open menu" />
+          <Image
+            src="/icons/burger-menu-tablet.svg"
+            alt="Open menu"
+            width={60}
+            height={60}
+            className={styles.menuIcon}
+            priority
+          />
         </div>
       </label>
 
-      {/* Оверлей для закрытия */}
+      {/* оверлей для закрытия  */}
       <label htmlFor="burger-toggle" className={styles.overlay}></label>
 
-      {/* Меню */}
       <div className={styles.menu}>
         <nav className={styles.nav}>
           {navigationData.menu.map((item) => (

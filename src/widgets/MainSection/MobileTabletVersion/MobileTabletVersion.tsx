@@ -5,6 +5,7 @@ import AndroidButton from "@/shared/ui/platformButton/androidButton";
 import AppleButton from "@/shared/ui/platformButton/iosButton";
 import ApkButton from "@/shared/ui/apkButton/apkButton";
 import { VideoButton } from "@/shared/ui/videoButton/videoButton";
+import Image from "next/image";
 
 interface MobileTabletVersionProps {
   data: IMainContentData;
@@ -15,7 +16,13 @@ export const MobileTabletVersion = ({ data }: MobileTabletVersionProps) => {
     <div className={styles.container}>
       <div className={styles.headerInfo}>
         <div className={styles.logo}>
-          <img src="/logo.svg" alt="Revmo.info" className={styles.logoIcon} />
+          <Image
+            src="/logo.svg"
+            alt="Revmo.info"
+            width={199}
+            height={60}
+            className={styles.logoIcon}
+          />
         </div>
         <div className={styles.downloadAnimation}>
           <DownloadButton />
@@ -64,13 +71,22 @@ export const MobileTabletVersion = ({ data }: MobileTabletVersionProps) => {
 
           {data.sidebar.qr_code.enabled && (
             <div className={styles.qrCode}>
-              <img src="/icons/qr-icon.svg" alt="QR Image" />
-              <span>{data.sidebar.qr_code.label}</span>
-              <img
-                src={data.sidebar.qr_code.url}
-                alt="QR Code"
-                className={styles.qrLogoOnQr}
+              <Image
+                src="/icons/qr-icon.svg"
+                alt="QR Image"
+                width={48}
+                height={48}
               />
+              <span>{data.sidebar.qr_code.label}</span>
+              {data.sidebar.qr_code.url && (
+                <Image
+                  src={data.sidebar.qr_code.url}
+                  alt="QR Code"
+                  width={140}
+                  height={140}
+                  className={styles.qrLogoOnQr}
+                />
+              )}
             </div>
           )}
         </div>

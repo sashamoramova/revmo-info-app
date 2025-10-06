@@ -36,11 +36,12 @@
 }
 
 .downloadAnimation {
+  padding-right: 24px;
   justify-self: end;
 }
 
 .mainContent {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   display: grid;
   justify-items: center;
   text-align: center;

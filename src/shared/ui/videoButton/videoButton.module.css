@@ -33,7 +33,7 @@
   word-break: break-word;
   transition: opacity 0.2s,  transform 0.2s;
   position: relative;
-  max-width: 150px;
+  max-width: 140px;
 }
 
 .videoButton:hover .text {

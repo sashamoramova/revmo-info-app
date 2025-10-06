@@ -40,7 +40,7 @@
 }
 
 .mainContent {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: grid;
   justify-items: center;
   text-align: center;
@@ -82,6 +82,11 @@
     "subtitle"
     "buttons"
     "apk";
+
+  background-image: url("/icons/shadow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
   @media (--mobile) {
     /* grid-template-areas:
@@ -155,28 +160,10 @@
 
 .phoneFrame {
   @media (--tablet) {
-    /* grid-template-columns: auto auto;
-    justify-content: center; */
     height: 377px;
     width: 100%;
   }
 }
-
-/* .phoneFrame {
-  width: 200px;
-  height: 400px;
-  background: #000;
-  border-radius: 30px;
-  padding: 8px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-
-  @media (--tablet) {
-    width: 240px;
-    height: 480px;
-  }
-} */
 
 .video {
   width: 100%;
@@ -199,37 +186,24 @@
 
   @media (--tablet) {
     grid-template-columns: auto auto;
-    justify-content: center;
+    justify-items: stretch;
+
+    /* grid-template-columns: 1fr 1fr; */
   }
 }
 
 .watchVideoDiv {
   height: 180px;
+  max-height: 180px;
   background-color: var(--color-white);
   border-radius: 36px;
+  width: 100%;
 }
 
-.watchVideoButton {
-  border: none;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  /* white-space: nowrap; */
-
-  &:hover {
-  }
-
-  @media (--mobile) {
-  }
-
-  @media (--tablet) {
-  }
-}
-
-.qrCode {
+/* .qrCode {
   display: none;
-
+  
+  
   @media (--tablet) {
     height: 180px;
     display: flex;
@@ -238,6 +212,7 @@
     padding: 36px;
     background: var(--color-white);
     border-radius: 36px;
+    justify-content: center;
 
     span {
       text-align: center;
@@ -250,5 +225,31 @@
     .qrLogoOnQr {
       height: 140px;
     }
+  } */
+
+.qrCode {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 36px;
+  background: var(--color-white);
+  border-radius: 36px;
+  justify-content: center;
+
+  span {
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .qrLogoOnQr {
+    height: 140px;
+  }
+
+  @media (--mobile) {
+    display: none;
   }
 }

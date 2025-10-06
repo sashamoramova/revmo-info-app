@@ -4,6 +4,7 @@ import DownloadButton from "@/shared/ui/downloadButton/downloadButton";
 import AndroidButton from "@/shared/ui/platformButton/androidButton";
 import AppleButton from "@/shared/ui/platformButton/iosButton";
 import ApkButton from "@/shared/ui/apkButton/apkButton";
+import { VideoButton } from "@/shared/ui/videoButton/videoButton";
 
 interface MobileTabletVersionProps {
   data: IMainContentData;
@@ -57,10 +58,7 @@ export const MobileTabletVersion = ({ data }: MobileTabletVersionProps) => {
         <div className={styles.bottomActions}>
           {data.sidebar.watch_video.enabled && (
             <div className={styles.watchVideoDiv}>
-              <button className={styles.watchVideoButton}>
-                ▶️
-              </button>
-              {data.sidebar.watch_video.label}
+              <VideoButton videoUrl={data.sidebar.watch_video.url} />
             </div>
           )}
 

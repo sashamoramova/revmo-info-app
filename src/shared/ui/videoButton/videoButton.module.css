@@ -1,0 +1,44 @@
+.videoButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  min-height: 120px;
+  position: relative;
+  padding: 36px;
+  margin: 0;
+}
+
+.icon {
+  /* top: 0; */
+  margin-top: 33px;
+  transition: transform 0.2s;
+  transform-origin: top center;
+}
+
+.videoButton:hover .icon {
+  transform: scale(2);
+}
+
+.text {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #222;
+  white-space: pre-line;
+  word-break: break-word;
+  transition: opacity 0.2s,  transform 0.2s;
+  position: relative;
+  max-width: 150px;
+}
+
+.videoButton:hover .text {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+   pointer-events: none;
+}

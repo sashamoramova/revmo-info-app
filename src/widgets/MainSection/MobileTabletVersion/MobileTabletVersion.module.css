@@ -125,10 +125,13 @@
 }
 
 .subtitle {
-  grid-area: subtitle;
+  align-self: stretch;
+  font-family: 'Lato';
   font-size: 36px;
+  font-style: normal;
   font-weight: 300;
   line-height: 42px;
+  grid-area: subtitle;
 
   @media (--tablet) {
     /* padding-left: 24px; */

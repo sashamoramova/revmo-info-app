@@ -15,6 +15,9 @@
   align-items: center;
   z-index: 100; /* Меньший z-index чем у бургер-меню */
 
+    left: 50%;
+  transform: translateX(-50%);
+
   @media (--laptop) {
     /* right: 223px; */
   }

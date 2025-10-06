@@ -7,10 +7,10 @@
 .header {
   position: relative;
   z-index: 1000;
-  /* @media (--laptop, --desktop, --large) {
+  @media (--laptop, --desktop, --large) {
     display: flex;
     align-items: center;
-  } */
+  }
 
 }
 

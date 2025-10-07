@@ -17,7 +17,6 @@ export const AppleButton = ({ label, onClick, className }: AppleButtonProps) => 
         alt="Apple"
         className={styles.platformIcon}
       />
-      {/* <span className={styles.textWithIcon}> */}
         <span className={styles.buttonText}>{label}</span>
         <img
           src="/icons/download-arrow.svg"
@@ -25,7 +24,6 @@ export const AppleButton = ({ label, onClick, className }: AppleButtonProps) => 
           className={styles.downloadIcon}
           id='apple-icon'
         />
-      {/* </span> */}
     </button>
   );
 };

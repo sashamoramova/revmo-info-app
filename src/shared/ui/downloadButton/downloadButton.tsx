@@ -1,7 +1,5 @@
 import styles from "./downloadButton.module.css";
-// import Image from "next/image";
 
-// Вынесем SVG в константу чтобы не создавать каждый раз
 const ArrowIcon = ({ color }: { color: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

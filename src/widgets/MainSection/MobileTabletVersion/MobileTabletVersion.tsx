@@ -57,6 +57,8 @@ export const MobileTabletVersion = ({ data }: MobileTabletVersionProps) => {
               autoPlay
               muted
               loop
+              preload="auto"
+              poster="/icoms/video-poster.jpg"
               className={styles.video}
             />
           </div>

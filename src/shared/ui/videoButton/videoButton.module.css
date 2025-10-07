@@ -25,15 +25,15 @@
 .text {
   margin-top: 18px;
   text-align: center;
-font-family: Lato;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; /* 133.333% */
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 133.333% */
   color: #222;
   white-space: pre-line;
   word-break: break-word;
-  transition: opacity 0.2s,  transform 0.2s;
+  transition: opacity 0.2s, transform 0.2s;
   position: relative;
   max-width: 140px;
 }
@@ -42,5 +42,5 @@ line-height: 24px; /* 133.333% */
   visibility: hidden;
   opacity: 0;
   transform: translateY(30px);
-   pointer-events: none;
+  pointer-events: none;
 }

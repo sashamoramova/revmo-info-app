@@ -1,83 +1,43 @@
-/* @custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
-@custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
-@custom-media --large (min-width: 1920px);
-
-.container {
-  border: 10px solid red;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
+@media (--desktop), (--large) {
+  .watchVideoDiv {
+    grid-column: 3;
+    grid-row: 1;
+    background: white;
+    border-radius: 36px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
-
-.headerInfo {
-  display: flex;
-  justify-content: space-between;
+@media (--desktop), (--large) {
+  .videoButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+  }
+  .icon {
+    margin-top: 36px;
+    align-self: center;
+    transition: transform 0.2s;
+    transform-origin: top center;
+  }
+  .text {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.2;
+    color: #222;
+    max-width: 220px;
+  }
 }
-
-.logo {
-  padding: 12px;
-}
-
-.downloadAnimation {
-  padding: 12px;
-}
-
-.mainContent {
-  overflow: hidden;
-  border: 10px solid var(--color-black);
-  max-height: 100%;
-  min-height: 0;
-}
-
-.helperContent {
-  border: 10px solid blue;
-}
-
-.title {
-  font-family: Lato;
-  font-size: 60px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 60px;
-}
-
-.subtitle {
-  font-family: Lato;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 42px;
-}
-
-.videoBlock {
-  border: 1px solid var(--color-grey);
-  height: 100px;
-  width: 400px;
-}
-
-.video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 22px;
-}
-
-.watchVideoDiv {
-  border: 5px solid pink;
-  max-height: 100%;
-  min-height: 0;
-}
-
-.qrCode {
-  border: 5px solid orange;
-  max-height: 100%;
-  min-height: 0;
-} */
-
-
-
-
 @custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
 @custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
 @custom-media --large (min-width: 1920px);
@@ -97,6 +57,7 @@
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
+  margin: 24px;
 }
 
 .logo {
@@ -111,6 +72,10 @@
 .downloadAnimation {
   display: flex;
   align-items: center;
+
+  @media (--laptop) {
+    display: none;
+  }
 }
 
 /* Основной контент - использует оставшееся пространство */
@@ -120,13 +85,17 @@
   gap: 12px;
   min-height: 0; /* Важно для предотвращения переполнения */
   overflow: hidden;
+  margin: 24px;
+  margin-top: 0;
 }
 
 /* === LAPTOP: 1200-1439px === */
 @media (--laptop) {
   .mainContent {
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки для точного позиционирования */
-    grid-template-rows: auto 1fr; /* 2 строки: авто и растягивающаяся */
+    /* .mainContent { */
+    grid-template-columns: 1fr 2fr 3fr; /* 3 колонки: watchVideo (1fr), qrCode (2fr), videoBlock (3fr) */
+    grid-template-rows: 2fr 1fr; /* 2/3 высоты для первой строки, 1/3 для второй */
+    /* } */
   }
 
   /* Блок 1: Хелпер контент - левый верхний, занимает 2 колонки */
@@ -147,11 +116,41 @@
     grid-row: 2;
     background: white;
     border-radius: 36px;
-    padding: 24px;
+    padding: 36px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+  }
+
+  .videoButton {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+  }
+
+  .icon {
+    margin-bottom: 16px;
+  }
+
+  .text {
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.2;
+    /* color: #222; */
+
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
   }
 
   /* Блок 4: QR код - левая нижняя, вторая колонка */
@@ -212,7 +211,7 @@
 
   /* Блок 3: Кнопка видео - правая верхняя */
   .watchVideoDiv {
-    grid-column: 3;
+    /* grid-column: 3;
     grid-row: 1;
     background: white;
     border-radius: 36px;
@@ -220,7 +219,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
   }
 
   /* Блок 4: QR код - правая нижняя */
@@ -277,7 +276,7 @@
     padding: 28px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   }
 
@@ -346,8 +345,56 @@
   text-align: center;
 }
 
-.qrLogoOnQr {
-  margin-top: 8px;
+.videoButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  min-height: 120px;
+  position: relative;
+  padding: 36px;
+  margin: 0;
+}
+
+.icon {
+  margin-top: 0;
+  transition: transform 0.2s;
+  transform-origin: top center;
+}
+@media (--laptop) {
+  .icon {
+    align-self: flex-start;
+    transform-origin: top left;
+  }
+}
+
+.videoButton:hover .icon {
+  transform: scale(2);
+}
+
+.text {
+  margin-top: 18px;
+  text-align: left;
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 133.333% */
+  color: #222;
+  white-space: pre-line;
+  word-break: break-word;
+  transition: opacity 0.2s, transform 0.2s;
+  position: relative;
+  max-width: 140px;
+}
+
+.videoButton:hover .text {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
 }
 
 /* Адаптивная типографика для меньших экранов */
@@ -360,5 +407,36 @@
   .subtitle {
     font-size: 28px;
     line-height: 34px;
+  }
+
+  .qrCode {
+    flex-direction: row; /* на лаптопе горизонтально */
+    justify-content: space-between; /* или center, если нужно */
+
+    align-items: center;
+    padding: 36px;
+
+    .qrLabel {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 30px;
+      justify-content: center;
+
+      span {
+        text-align: left;
+        max-width: 91px;
+        font-family: Lato;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .watchVideoDiv .videoButton {
+    align-items: flex-end;
+    justify-content: flex-end;
   }
 }

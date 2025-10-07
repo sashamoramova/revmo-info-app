@@ -57,28 +57,77 @@ export const DesktopVersion = ({ data }: DesktopVersionProps) => {
 
         {data.sidebar.watch_video.enabled && (
           <div className={styles.watchVideoDiv}>
-            <VideoButton videoUrl={data.sidebar.watch_video.url} />
+            {/* <VideoButton videoUrl={data.sidebar.watch_video.url} /> */}
+            <a
+              href={data.sidebar.watch_video.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.videoButton}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "none",
+                background: "none",
+                padding: 0,
+                cursor: "pointer",
+                textDecoration: "none",
+              }}
+            >
+              <span className={styles.icon}>
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="48" height="48" rx="24" fill="#9488EC" />
+                  <path
+                    d="M21 34H27C32 34 34 32 34 27V21C34 16 32 14 27 14H21C16 14 14 16 14 21V27C14 32 16 34 21 34Z"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M21.1 24V22.52C21.1 20.61 22.45 19.84 24.1 20.79L25.38 21.53L26.66 22.27C28.31 23.22 28.31 24.78 26.66 25.73L25.38 26.47L24.1 27.21C22.45 28.16 21.1 27.38 21.1 25.48V24Z"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeMiterlimit="10"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <span className={styles.text}>смотреть видео о приложении</span>
+            </a>
           </div>
         )}
 
         {data.sidebar.qr_code.enabled && (
           <div className={styles.qrCode}>
-            <Image
-              src="/icons/qr-icon.svg"
-              alt="QR Image"
-              width={48}
-              height={48}
-            />
-            <span>{data.sidebar.qr_code.label}</span>
-            {data.sidebar.qr_code.url && (
+            <div className={styles.qrLabel}>
               <Image
-                src={data.sidebar.qr_code.url}
-                alt="QR Code"
-                width={140}
-                height={140}
-                className={styles.qrLogoOnQr}
+                src="/icons/qr-icon.svg"
+                alt="QR Image"
+                width={48}
+                height={48}
               />
-            )}
+              <span>{data.sidebar.qr_code.label}</span>
+            </div>
+            <div>
+              {data.sidebar.qr_code.url && (
+                <Image
+                  src={data.sidebar.qr_code.url}
+                  alt="QR Code"
+                  width={140}
+                  height={140}
+                  className={styles.qrLogoOnQr}
+                />
+              )}
+            </div>
           </div>
         )}
       </div>

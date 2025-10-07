@@ -1,0 +1,142 @@
+@custom-media --mobile (max-width: 743px);
+@custom-media --tablet (min-width: 744px) and (max-width: 1199px);
+@custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
+@custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
+@custom-media --large (min-width: 1920px);
+
+.reviewsSection {
+  padding: 12px;
+
+  @media (--mobile) {
+    padding-top: 0;
+  }
+}
+
+.descriptionSection {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-image: url("/icons/shadow-reviews.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 48px;
+  gap: 18px;
+
+  @media (--tablet) {
+    height: 702px;
+  }
+}
+
+.title {
+  font-family: Lato;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+  color: #222;
+  margin-bottom: 12px;
+  text-align: center;
+  
+  @media (--mobile) {
+    font-size: 36px;
+    line-height: 36px;
+  }
+}
+
+.description {
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.3;
+  color: #222;
+  text-align: center;
+  
+  @media (--mobile) {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    max-width: 180px;
+  }
+}
+
+/* Новые стили для правильного отображения карточек */
+.sliderContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.reviewsList {
+  display: flex;
+  gap: 24px;
+  padding: 20px 12px;
+  
+  /* Центрируем карточки */
+  justify-content: flex-start;
+  align-items: center;
+  
+  /* Горизонтальный скролл */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  
+  /* Убираем стандартный скроллбар */
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+  
+  /* Для Webkit браузеров */
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+  }
+}
+
+.reviewItem {
+  flex: 0 0 auto;
+  /* Убедитесь, что ширина соответствует карточке */
+}
+
+/* Для мобильных устройств - меньшие отступы */
+@media (--mobile) {
+  .reviewsList {
+    gap: 16px;
+    padding: 16px 8px;
+  }
+  
+  .sliderContainer {
+    padding: 16px 0;
+  }
+}
+
+/* Для планшетов и выше - центрируем контент */
+@media (--tablet) {
+  .reviewsList {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+@media (--laptop) {
+  .reviewsList {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 32px;
+  }
+}

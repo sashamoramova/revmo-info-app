@@ -1,4 +1,3 @@
-// ReviewsSection.tsx
 import { ReviewsApi } from "@/entities/reviews/api/reviewsApi";
 import styles from "./ReviewsSection.module.css";
 import { ReviewCard } from "@/entities/reviews/ui/reviewCard";
@@ -13,10 +12,9 @@ export default async function ReviewsSection() {
         <div className={styles.description}>{reviews.description}</div>
       </div>
       
-      {/* Контейнер для центрирования карточек */}
       <div className={styles.sliderContainer}>
         <ul className={styles.reviewsList}>
-          {(reviews.data ?? []).slice(0, 5).map((review) => (
+          {(reviews.data ?? []).map((review) => (
             <li key={review.id} className={styles.reviewItem}>
               <ReviewCard review={review} />
             </li>

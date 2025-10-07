@@ -1,5 +1,3 @@
-
-
 import { IReviewsData } from '../types';
 
 export const REVIEWS_ENDPOINT_PATH = '/api/slider' as const;

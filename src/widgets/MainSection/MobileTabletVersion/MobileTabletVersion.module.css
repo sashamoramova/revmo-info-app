@@ -98,7 +98,6 @@
       "title"
       "subtitle"
       "buttons";
-    /* justify-items: ; */
   }
 }
 
@@ -163,7 +162,6 @@
 }
 
 .videoBlock {
-  /* max-height: 427px; */
   grid-area: video;
   display: grid;
   justify-items: center;
@@ -173,8 +171,6 @@
 .phoneFrame {
   @media (--mobile) {
     max-height: 600px;
-
-    /* height: 427px; */
     width: 100%;
   }
 
@@ -191,9 +187,6 @@
   object-fit: cover;
   border-radius: 22px;
   @media (--mobile) {
-    /* margin-top: 48px; */
-    /* height: 427px;
-    width: 100%; */
   }
 }
 
@@ -212,8 +205,6 @@
   @media (--tablet) {
     grid-template-columns: auto auto;
     justify-items: stretch;
-
-    /* grid-template-columns: 1fr 1fr; */
   }
 }
 

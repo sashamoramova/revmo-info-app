@@ -5,7 +5,6 @@ interface DesktopNavigationProps {
   navigationData: INavigationData;
 }
 
-// Убираем 'use client'
 export function DesktopNavigation({ navigationData }: DesktopNavigationProps) {
   return (
     <nav className={styles.desktopNav}>

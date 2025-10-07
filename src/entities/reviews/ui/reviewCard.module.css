@@ -1,0 +1,76 @@
+@custom-media --mobile (max-width: 743px);
+@custom-media --tablet (min-width: 744px) and (max-width: 1199px);
+@custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
+@custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
+@custom-media --large (min-width: 1920px);
+
+.card {
+  background-color: var(--color-extra-light);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 260px;
+  max-width: 370px;
+  margin: 0 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e3eaf2;
+}
+
+.name {
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.date {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 6px;
+}
+
+.calendarIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.text {
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+@media (--mobile) {
+  .card {
+    padding: 16px;
+    min-width: 200px;
+    max-width: 100%;
+  }
+  .text {
+    font-size: 14px;
+    padding: 12px;
+  }
+}

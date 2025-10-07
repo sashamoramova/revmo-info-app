@@ -1,7 +1,7 @@
 @custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
 @custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
 @custom-media --large (min-width: 1920px);
-
+/* 
 .container {
   min-height: 100vh;
   display: flex;
@@ -11,7 +11,6 @@
 
   @media (--large) {
     max-height: 1900px;
-    /* overflow: hidden; */
   }
 }
 
@@ -23,7 +22,6 @@
 
 .logo,
 .downloadAnimation {
-  /* Общие стили убраны — padding вынесен в headerInfo */
 }
 
 .downloadAnimation {
@@ -94,7 +92,6 @@
 }
 
 .phoneFrame {
-  /* Пока пуст — можно удалить, если не используется */
 }
 
 .video {
@@ -180,5 +177,129 @@
     font-weight: 400;
     line-height: 24px;
     margin: 0;
+  }
+} */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #f5f6fa;
+  box-sizing: border-box;
+  padding: 0 36px;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  width: 100%;
+  height: 100%; /* растягиваем на высоту контейнера */
+  align-items: stretch;
+}
+
+/* helperContent (левый блок) */
+.helperContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  border-radius: 24px;
+  padding: 48px;
+}
+
+/* центральный блок с видео */
+.videoBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 24px;
+}
+
+.phoneFrame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.video {
+  width: auto;
+  height: 80%;
+  border-radius: 16px;
+}
+
+/* правая колонка */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.watchVideoDiv,
+.qrCode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px;
+}
+
+/* -------- АДАПТИВ -------- */
+
+/* 💻 Laptop: 1200–1439px */
+@media (--laptop) {
+  .mainContent {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "helperContent videoBlock"
+      "helperContent sidebar";
+  }
+
+  .helperContent {
+    grid-area: helperContent;
+  }
+
+  .videoBlock {
+    grid-area: videoBlock;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .watchVideoDiv,
+  .qrCode {
+    flex: 1;
+  }
+}
+
+/* 🖥 Desktop: 1440–1919px */
+@media (--desktop) {
+  .mainContent {
+    grid-template-columns: 1fr 1fr 270px;
+    grid-template-rows: 1fr;
+  }
+}
+
+/* 🖥 Large: ≥1920px */
+@media (--large) {
+  .mainContent {
+    grid-template-columns: 1fr 1fr 300px;
+    gap: 16px;
+  }
+
+  .helperContent,
+  .videoBlock,
+  .watchVideoDiv,
+  .qrCode {
+    border-radius: 32px;
   }
 }

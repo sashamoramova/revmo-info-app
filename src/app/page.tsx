@@ -15,10 +15,10 @@ export default async function HomePage() {
       </Head>
       <Header />
 
-      <main>
+      {/* <main> */}
         <MainSection data={mainData} />
         <ReviewsSection />
-      </main>
+      {/* </main> */}
       <Footer />
     </>
   );

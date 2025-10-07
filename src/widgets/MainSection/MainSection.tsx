@@ -10,12 +10,14 @@ interface MainSectionProps {
 export const MainSection = ({ data }: MainSectionProps) => {
   return (
     <section className={styles.mainSection}>
-      <div className={styles.mobileTabletContainer}>
-        <MobileTabletVersion data={data} />
-      </div>
+      <div className={styles.wrapper}>
+        <div className={styles.mobileTabletContainer}>
+          <MobileTabletVersion data={data} />
+        </div>
 
-      <div className={styles.desktopContainer}>
-        <DesktopVersion data={data} />
+        <div className={styles.desktopContainer}>
+          <DesktopVersion data={data} />
+        </div>
       </div>
     </section>
   );

@@ -11,16 +11,15 @@ export const DesktopVersion = ({ data }: DesktopVersionProps) => {
     <div className={styles.container}>
       {/* APK кнопка и логотип вверху */}
       {/* <div className={styles.topBar}> */}
-        <div className={styles.headerInfo}>
-          <div className={styles.logo}>
-            <img src="/logo.svg" alt="Revmo.info" className={styles.logoIcon} />
-          </div>
-          <div className={styles.downloadAnimation}>
-            {/* бебра */}
-            <DownloadButton />
-          </div>
+      <div className={styles.headerInfo}>
+        <div className={styles.logo}>
+          <img src="/logo.svg" alt="Revmo.info" className={styles.logoIcon} />
         </div>
-
+        <div className={styles.downloadAnimation}>
+          {/* бебра */}
+          <DownloadButton />
+        </div>
+      </div>
 
       {/* Основной контент */}
       <div className={styles.mainContent}>
@@ -29,11 +28,11 @@ export const DesktopVersion = ({ data }: DesktopVersionProps) => {
           {/* Левая часть - текст и кнопки */}
 
           <div className={styles.helperContent}>
-          {data.buttons.apk.enabled && (
-            <button className={styles.apkButton}>
-              {data.buttons.apk.label} 📥
-            </button>
-          )}
+            {data.buttons.apk.enabled && (
+              <button className={styles.apkButton}>
+                {data.buttons.apk.label} 📥
+              </button>
+            )}
             <h1 className={styles.title}>{data.title}</h1>
             <p className={styles.subtitle}>{data.subtitle}</p>
 

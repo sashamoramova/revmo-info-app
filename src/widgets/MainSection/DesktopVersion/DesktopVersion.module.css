@@ -3,7 +3,7 @@
 @custom-media --large (min-width: 1920px);
 
 .container {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   padding: 24px;

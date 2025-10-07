@@ -185,8 +185,6 @@
 
   object-fit: cover;
   border-radius: 22px;
-  @media (--mobile) {
-  }
 }
 
 .bottomActions {

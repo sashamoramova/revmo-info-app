@@ -8,11 +8,11 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   background-image: url("/icons/shadow-reviews.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  justify-content: flex-end;
 }
 
 .descriptionSection {
@@ -59,16 +59,12 @@
 }
 
 .sliderContainer {
-  /* height: 100vh; */
-  /* width: 100%; */
-  /* overflow: hidden; */
   display: flex;
   padding-bottom: 20px;
-  margin-bottom: 0;
-  /* bottom: 0; */
 }
 
 .reviewsList {
+  border: 1px solid var(--color-grey);
   display: flex;
   gap: 24px;
   padding: 20px 12px;
@@ -96,9 +92,12 @@
 }
 
 .reviewItem {
-  bottom: 0;
+  border: 1px solid var(--color-grey);
   max-width: 420px;
   flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 @media (--mobile) {

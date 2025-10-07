@@ -7,7 +7,6 @@ export default async function ReviewsSection() {
   const reviews = await ReviewsApi.getReviews();
 
   return (
-    // <div className={styles.wrapper}>
     <section className={styles.reviewsSection}>
       <div className={styles.descriptionSection}>
         <h2 className={styles.title}>{reviews.title}</h2>
@@ -25,6 +24,5 @@ export default async function ReviewsSection() {
       </div>
       <Footer />
     </section>
-    // </div>
   );
 }

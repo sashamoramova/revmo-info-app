@@ -1,6 +1,11 @@
 import DownloadButton from "@/shared/ui/downloadButton/downloadButton";
 import styles from "./DesktopVersion.module.css";
 import { IMainContentData } from "@/entities/main-content/types";
+import Image from "next/image";
+import ApkButton from "@/shared/ui/apkButton/apkButton";
+import AppleButton from "@/shared/ui/platformButton/iosButton";
+import AndroidButton from "@/shared/ui/platformButton/androidButton";
+import VideoButton from "@/shared/ui/videoButton/videoButton";
 
 interface DesktopVersionProps {
   data: IMainContentData;
@@ -9,67 +14,81 @@ interface DesktopVersionProps {
 export const DesktopVersion = ({ data }: DesktopVersionProps) => {
   return (
     <div className={styles.container}>
-      {/* APK кнопка и логотип вверху */}
-      {/* <div className={styles.topBar}> */}
-        <div className={styles.headerInfo}>
-          <div className={styles.logo}>
-            <img src="/logo.svg" alt="Revmo.info" className={styles.logoIcon} />
-          </div>
-          <div className={styles.downloadAnimation}>
-            {/* бебра */}
-            <DownloadButton />
-          </div>
+      <div className={styles.headerInfo}>
+        <div className={styles.logo}>
+          <Image
+            src="/logo.svg"
+            alt="Revmo.info"
+            width={199}
+            height={60}
+            className={styles.logoIcon}
+          />
         </div>
+        <div className={styles.downloadAnimation}>
+          <DownloadButton />
+        </div>
+      </div>
 
-
-      {/* Основной контент */}
+      {/* ⬇️ УБРАЛИ .topContent — теперь только три блока */}
       <div className={styles.mainContent}>
-        {/* Верхняя часть для laptop (контент + видео в ряд) */}
-        <div className={styles.topContent}>
-          {/* Левая часть - текст и кнопки */}
-
-          <div className={styles.helperContent}>
+        <div className={styles.helperContent}>
           {data.buttons.apk.enabled && (
-            <button className={styles.apkButton}>
-              {data.buttons.apk.label} 📥
-            </button>
+            <div className={styles.apkButtonContainer}>
+              <ApkButton label={data.buttons.apk.label} />
+            </div>
           )}
-            <h1 className={styles.title}>{data.title}</h1>
-            <p className={styles.subtitle}>{data.subtitle}</p>
+          <h1 className={styles.title}>{data.title}</h1>
+          <p className={styles.subtitle}>{data.subtitle}</p>
 
-            <div className={styles.downloadButtons}>
-              {data.buttons.ios.enabled && (
-                <button className={styles.iosButton}>
-                  🍎 {data.buttons.ios.label}
-                </button>
-              )}
-              {data.buttons.android.enabled && (
-                <button className={styles.androidButton}>
-                  📱 {data.buttons.android.label}
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* Центр - видео */}
-          <div className={styles.videoBlock}>
-            <div className={styles.phoneFrame}>
-              <video src={data.videoUrl} autoPlay muted loop />
-            </div>
+          <div className={styles.downloadButtons}>
+            {data.buttons.ios.enabled && (
+              <AppleButton label={data.buttons.ios.label} />
+            )}
+            {data.buttons.android.enabled && (
+              <AndroidButton label={data.buttons.android.label} />
+            )}
           </div>
         </div>
 
-        {/* Сайдбар (внизу для laptop, справа для desktop/large) */}
+        <div className={styles.videoBlock}>
+          <div className={styles.phoneFrame}>
+            <video
+              src={data.videoUrl}
+              autoPlay
+              muted
+              loop
+              preload="auto"
+              poster="/icons/video-poster.jpg"
+              className={styles.video}
+            />
+          </div>
+        </div>
+
         <div className={styles.sidebar}>
           {data.sidebar.watch_video.enabled && (
-            <button className={styles.watchVideoButton}>
-              ▶️ {data.sidebar.watch_video.label}
-            </button>
+            <div className={styles.watchVideoDiv}>
+              <VideoButton videoUrl={data.sidebar.watch_video.url} />
+            </div>
           )}
+
           {data.sidebar.qr_code.enabled && (
             <div className={styles.qrCode}>
-              <img src={data.sidebar.qr_code.url} alt="QR Code" />
+              <Image
+                src="/icons/qr-icon.svg"
+                alt="QR Image"
+                width={48}
+                height={48}
+              />
               <span>{data.sidebar.qr_code.label}</span>
+              {data.sidebar.qr_code.url && (
+                <Image
+                  src={data.sidebar.qr_code.url}
+                  alt="QR Code"
+                  width={140}
+                  height={140}
+                  className={styles.qrLogoOnQr}
+                />
+              )}
             </div>
           )}
         </div>

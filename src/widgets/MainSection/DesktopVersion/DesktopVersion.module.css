@@ -6,163 +6,143 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 12px;
   position: relative;
 
-  @media (--laptop) {
-    padding: 48px 36px;
-  }
-
-  @media (--desktop) {
-    padding: 60px 48px;
-  }
-
   @media (--large) {
-    padding: 80px 60px;
+    max-height: 1900px;
+    /* overflow: hidden; */
   }
 }
-
 
 .headerInfo {
   display: flex;
   justify-content: space-between;
+  padding: 24px;
 }
 
-.logo {
-  padding: 24px;
-  @media (--mobile) {
-    display: none;
-  }
-  @media (--tablet) {
-    padding-left: 108px;
-  }
+.logo,
+.downloadAnimation {
+  /* Общие стили убраны — padding вынесен в headerInfo */
 }
 
 .downloadAnimation {
-  padding: 24px;
-
-  @media (--mobile) {
-    display: none;
-  }
-
   @media (--laptop) {
     display: none;
   }
 }
 
-
-
-.apkButton {
-  padding: 8px 16px;
-  border: 1px solid var(--color-grey);
-  border-radius: 16px;
-  background: transparent;
-  color: var(--color-black);
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: var(--color-light-brand);
-    border-color: var(--color-black);
-  }
-}
-
-
-
-/* Основной контент */
 .mainContent {
-  display: flex;
-  flex: 1;
-  gap: 64px;
-  max-width: 1440px;
-  margin: 0 auto;
-  width: 100%;
+  display: grid;
+  gap: 40px;
+  max-height: 100vh;
 
   @media (--laptop) {
-    /* В laptop - КОЛОНКА: сначала строка (контент + видео), потом сайдбар снизу */
-    flex-direction: column;
-    gap: 40px;
+    grid-template-areas:
+      "helperContent videoBlock"
+      "sidebar videoBlock";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
   }
 
-  @media (--desktop) {
-    /* В desktop/large - СТРОКА: контент слева, видео центр, сайдбар справа */
-    flex-direction: row;
-    align-items: center;
+  @media (--desktop), (--large) {
+    grid-template-areas: "helperContent videoBlock sidebar";
+    grid-template-columns: 1fr 1.2fr 0.7fr;
+    grid-template-rows: 1fr;
     gap: 80px;
-  }
-
-  @media (--large) {
-    gap: 120px;
-    max-width: 1600px;
+    max-width: 1440px;
+    margin: 0 auto;
   }
 }
 
-/* Верхняя часть для laptop */
-.topContent {
-  @media (--laptop) {
-    display: flex;
-    flex-direction: row;
-    gap: 48px;
-    align-items: center;
-    width: 100%;
-  }
-
-  @media (--desktop) {
-    /* В desktop/large убираем эту обертку */
-    display: contents;
-  }
-
-  @media (--large) {
-    display: contents;
-  }
-}
-
-/* Левая часть - контент */
 .helperContent {
-  flex: 0 0 auto;
+  grid-area: helperContent;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 450px;
+  background-color: var(--color-white);
+  background-image: url("/icons/shadow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 36px;
+  padding: 48px;
+
+  @media (--laptop) {
+    max-width: 100%;
+  }
 
   @media (--desktop) {
     max-width: 500px;
   }
 
   @media (--large) {
-    max-width: 550px;
+    max-width: 100%;
+  }
+}
+
+.videoBlock {
+  grid-area: videoBlock;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @media (--laptop) {
+    height: 100%;
+    max-height: 610px;
+  }
+}
+
+.phoneFrame {
+  /* Пока пуст — можно удалить, если не используется */
+}
+
+.video {
+  width: 100%;
+  max-height: 100%;
+  border-radius: 22px;
+
+  @media (--laptop) {
+    max-height: 610px;
+  }
+}
+
+.sidebar {
+  grid-area: sidebar;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  @media (--laptop) {
+    flex-direction: row;
+    align-self: flex-start;
+    gap: 24px;
+  }
+
+  @media (--desktop), (--large) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (--large) {
+    gap: 32px;
   }
 }
 
 .title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--color-black);
-  line-height: 1.1;
+  font-family: Lato, sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 60px;
   margin: 0;
-
-  @media (--laptop) {
-    font-size: 3rem;
-  }
-
-  @media (--desktop) {
-    font-size: 3.5rem;
-  }
-
-  @media (--large) {
-    font-size: 4rem;
-  }
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  color: var(--color-grey);
+  font-family: Lato, sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 42px;
   margin: 0;
-
-  @media (--large) {
-    font-size: 1.5rem;
-  }
 }
 
 .downloadButtons {
@@ -170,126 +150,35 @@
   gap: 12px;
 }
 
-.iosButton,
-.androidButton {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 24px;
-  background: var(--color-black);
-  color: var(--color-white);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: var(--color-grey);
-    transform: translateY(-2px);
-  }
-
-  @media (--large) {
-    padding: 16px 32px;
-    font-size: 1rem;
-  }
-}
-
-/* Центр - видео */
-.videoBlock {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.phoneFrame {
-  width: 280px;
-  height: 560px;
-  background: #000;
-  border-radius: 30px;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-
-  @media (--desktop) {
-    width: 320px;
-    height: 640px;
-  }
-
-  @media (--large) {
-    width: 360px;
-    height: 720px;
-  }
-
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 22px;
-  }
-}
-
-/* Правая часть - сайдбар */
-.sidebar {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-
-  @media (--laptop) {
-    /* В laptop - горизонтально слева внизу */
-    flex-direction: row;
-    align-self: flex-start;
-    gap: 24px;
-  }
-
-  @media (--desktop) {
-    /* В desktop/large - вертикально справа */
-    flex-direction: column;
-    align-items: center;
-  }
-
-  @media (--large) {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.watchVideoButton {
-  padding: 12px 16px;
-  border: none;
-  border-radius: 20px;
-  background: var(--color-violet-brand);
-  color: var(--color-white);
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-
-  &:hover {
-    background: var(--color-blue-brand);
-    transform: scale(1.05);
-  }
+.watchVideoDiv {
+  background-color: var(--color-white);
+  border-radius: 36px;
+  height: 180px;
+  width: 100%;
 }
 
 .qrCode {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 12px;
-  background: var(--color-white);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  gap: 12px;
+  padding: 36px;
+  background-color: var(--color-white);
+  border-radius: 36px;
+  height: 180px;
 
-  img {
-    width: 60px;
-    height: 60px;
+  .qrLogoOnQr {
+    height: 140px;
+    width: auto;
   }
 
   span {
-    font-size: 0.7rem;
-    color: var(--color-grey);
     text-align: center;
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
   }
 }

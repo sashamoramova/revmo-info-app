@@ -1,12 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
-
-const lato = Lato({
-  variable: "--font-lato",
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "700", "900"],
-});
 
 export const metadata: Metadata = {
   title: "Revmo.info",
@@ -20,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={lato.variable}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

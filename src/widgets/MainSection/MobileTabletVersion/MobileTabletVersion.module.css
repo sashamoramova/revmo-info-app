@@ -1,0 +1,240 @@
+@custom-media --mobile (max-width: 743px);
+@custom-media --tablet (min-width: 744px) and (max-width: 1199px);
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  padding: 12px;
+
+  @media (--mobile) {
+    grid-template-rows: 1fr;
+  }
+
+  @media (--tablet) {
+    grid-template-rows: auto 1fr;
+  }
+}
+
+.headerInfo {
+  display: none;
+
+  @media (--tablet) {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+}
+
+.logo {
+  padding: 24px;
+  @media (--mobile) {
+    display: none;
+  }
+  @media (--tablet) {
+    padding-left: 108px;
+  }
+}
+
+.downloadAnimation {
+  padding-right: 24px;
+  justify-self: end;
+}
+
+.mainContent {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 24px;
+  width: 100%;
+  position: relative;
+  padding: 24px;
+  padding-top: 0;
+
+  @media (--mobile) {
+    grid-template-areas:
+      "helper"
+      "video"
+      "actions";
+    grid-template-rows: auto auto auto;
+    padding: 12px;
+  }
+
+  @media (--tablet) {
+    grid-template-areas:
+      "helper"
+      "video"
+      "actions";
+    grid-template-rows: auto auto auto;
+  }
+}
+
+.helperContent {
+  grid-area: helper;
+  display: grid;
+  gap: 24px;
+  justify-items: start;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 36px;
+  padding: 48px;
+  grid-template-areas:
+    "title"
+    "subtitle"
+    "buttons"
+    "apk";
+
+  background-image: url("/icons/shadow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media (--mobile) {
+    justify-items: center;
+  }
+
+  @media (--tablet) {
+    grid-template-areas:
+      "apk"
+      "title"
+      "subtitle"
+      "buttons";
+    /* justify-items: ; */
+  }
+}
+
+.apkButtonContainer {
+  grid-area: apk;
+}
+
+.title {
+  grid-area: title;
+  font-family: Lato;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+
+  @media (--mobile) {
+    font-family: Lato;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    max-width: 220px;
+  }
+}
+
+.subtitle {
+  align-self: stretch;
+  font-family: "Lato";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 42px;
+  grid-area: subtitle;
+
+  @media (--mobile) {
+    font-family: Lato;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+  @media (--tablet) {
+    text-align: left;
+  }
+}
+
+.downloadButtons {
+  grid-area: buttons;
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+
+  @media (--mobile) {
+    grid-template-rows: auto auto;
+  }
+
+  @media (--tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.videoBlock {
+  grid-area: video;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+
+.phoneFrame {
+  @media (--tablet) {
+    height: 377px;
+    width: 100%;
+  }
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+.bottomActions {
+  width: 100%;
+  grid-area: actions;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 12px;
+
+  @media (--mobile) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (--tablet) {
+    grid-template-columns: auto auto;
+    justify-items: stretch;
+
+    /* grid-template-columns: 1fr 1fr; */
+  }
+}
+
+.watchVideoDiv {
+  height: 180px;
+  max-height: 180px;
+  background-color: var(--color-white);
+  border-radius: 36px;
+  width: 100%;
+}
+
+.qrCode {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 36px;
+  background: var(--color-white);
+  border-radius: 36px;
+  justify-content: center;
+
+  span {
+    text-align: center;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .qrLogoOnQr {
+    height: 140px;
+  }
+
+  @media (--mobile) {
+    display: none;
+  }
+}

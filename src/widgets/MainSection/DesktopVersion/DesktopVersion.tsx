@@ -9,14 +9,12 @@ interface DesktopVersionProps {
 export const DesktopVersion = ({ data }: DesktopVersionProps) => {
   return (
     <div className={styles.container}>
-      {/* APK кнопка и логотип вверху */}
-      {/* <div className={styles.topBar}> */}
       <div className={styles.headerInfo}>
         <div className={styles.logo}>
           <img src="/logo.svg" alt="Revmo.info" className={styles.logoIcon} />
         </div>
         <div className={styles.downloadAnimation}>
-          {/* бебра */}
+         
           <DownloadButton />
         </div>
       </div>

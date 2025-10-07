@@ -12,7 +12,7 @@
   border-radius: 36px;
   background: var(--color-black);
   color: var(--color-white);
-  
+
   line-height: 18px;
   transition: all 0.3s ease;
   white-space: nowrap;
@@ -26,6 +26,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @media (--tablet) {
+    /* padding-right: 5px;  */
   }
 }
 
@@ -72,6 +76,10 @@
     padding: 0px;
     opacity: 0;
     z-index: 1;
+  }
+
+  @media (--tablet) {
+    padding-right: 10px; /* увеличивает отступ справа */
   }
 }
 

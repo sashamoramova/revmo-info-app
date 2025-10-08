@@ -1,4 +1,3 @@
-/* filepath: c:\Users\Пользователь\Desktop\test\revmo-info-app\src\widgets\Header\BurgerMenu\BurgerMenu.tsx */
 import { type INavigationData } from "@/entities/navigation";
 import Image from "next/image";
 import styles from "./BurgerMenu.module.css";
@@ -39,7 +38,6 @@ export function BurgerMenu({ navigationData }: BurgerMenuProps) {
         </div>
       </label>
 
-      {/* оверлей для закрытия  */}
       <label htmlFor="burger-toggle" className={styles.overlay}></label>
 
       <div className={styles.menu}>

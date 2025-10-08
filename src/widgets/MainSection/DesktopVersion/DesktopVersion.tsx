@@ -5,7 +5,6 @@ import ApkButton from "@/shared/ui/apkButton/apkButton";
 import AppleButton from "@/shared/ui/platformButton/iosButton";
 import AndroidButton from "@/shared/ui/platformButton/androidButton";
 import Image from "next/image";
-import VideoButton from "@/shared/ui/videoButton/videoButton";
 
 interface DesktopVersionProps {
   data: IMainContentData;
@@ -59,7 +58,6 @@ export const DesktopVersion = ({ data }: DesktopVersionProps) => {
 
         {data.sidebar.watch_video.enabled && (
           <div className={styles.watchVideoDiv}>
-            {/* <VideoButton videoUrl={data.sidebar.watch_video.url} className={styles.videoButtonStyles} /> */}
             <a
               href={data.sidebar.watch_video.url}
               target="_blank"
@@ -121,14 +119,11 @@ export const DesktopVersion = ({ data }: DesktopVersionProps) => {
             </div>
             <div>
               {data.sidebar.qr_code.url && (
-                // <Image
-                //   src={data.sidebar.qr_code.url}
-                //   alt="QR Code"
-
-                //   className={styles.qrLogoOnQr}
-                // />
-
-                <img src={data.sidebar.qr_code.url} alt="QR Code" className={styles.qrLogoOnQr}/>
+                <img
+                  src={data.sidebar.qr_code.url}
+                  alt="QR Code"
+                  className={styles.qrLogoOnQr}
+                />
               )}
             </div>
           </div>

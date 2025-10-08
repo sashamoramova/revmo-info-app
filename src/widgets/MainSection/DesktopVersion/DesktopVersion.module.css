@@ -43,7 +43,7 @@
   }
 }
 
-/* Основной контейнер - занимает 100% высоты экрана */
+ 
 .container {
   height: 100vh;
   display: flex;
@@ -52,7 +52,7 @@
   gap: 12px;
 }
 
-/* Хедер с логотипом и кнопкой загрузки */
+ 
 .headerInfo {
   display: flex;
   justify-content: space-between;
@@ -99,36 +99,31 @@
     grid-column: 1 / 3;
     grid-row: 1;
 
-    /* .titleSubtitle {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      max-width: 500px;
-    } */
+    
   }
 }
 
-/* Основной контент - использует оставшееся пространство */
+ 
 .mainContent {
   flex: 1;
   display: grid;
   gap: 12px;
-  min-height: 0; /* Важно для предотвращения переполнения */
+  min-height: 0; 
   overflow: hidden;
   margin: 24px;
   margin-top: 0;
 }
 
-/* === LAPTOP: 1200-1439px === */
+ 
 @media (--laptop) {
   .mainContent {
-    /* .mainContent { */
-    grid-template-columns: 1fr 2fr 3fr; /* 3 колонки: watchVideo (1fr), qrCode (2fr), videoBlock (3fr) */
-    grid-template-rows: 2fr 1fr; /* 2/3 высоты для первой строки, 1/3 для второй */
-    /* } */
+  
+  grid-template-columns: 1fr 2fr 3fr; 
+  grid-template-rows: 2fr 1fr; 
+    
   }
 
-  /* Блок 3: Кнопка видео - левая нижняя, первая колонка */
+    
   .watchVideoDiv {
     grid-column: 1;
     grid-row: 2;
@@ -139,9 +134,9 @@
 
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
+    
     justify-content: space-between;
-    /* gap: 18px; */
+    
     height: 100%;
   }
 
@@ -149,7 +144,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* justify-content: space-between; */
+    
     background: none;
     border: none;
     cursor: pointer;
@@ -165,7 +160,7 @@
     text-align: left;
     font-size: 18px;
     line-height: 1.2;
-    /* color: #222; */
+    
 
     font-family: Lato;
     font-size: 18px;
@@ -174,7 +169,7 @@
     line-height: 24px;
   }
 
-  /* Блок 4: QR код - левая нижняя, вторая колонка */
+    
   .qrCode {
     grid-column: 2;
     grid-row: 2;
@@ -185,40 +180,40 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    /* gap: 12px; */
+    
   }
 
-  /* Блок 2: Видео - правая колонка на всю высоту, занимает 2 колонки */
+    
   .videoBlock {
     grid-column: 3 / 5;
-    grid-row: 1 / -1; /* Занимает все строки */
+  grid-row: 1 / -1; 
     background: white;
     border-radius: 36px;
-    /* padding: 12px; */
+    
     overflow: hidden;
     min-height: 0;
   }
 }
 
-/* === DESKTOP: 1440-1919px === */
+ 
 @media (--desktop) {
   .mainContent {
-    grid-template-columns: 4.3fr 3.7fr 1fr; /* левый 4.5/9, центр 3.5/9, sidebar 1/9 */
+  grid-template-columns: 4.3fr 3.7fr 1fr; 
     grid-template-rows: 1fr 1fr;
   }
 
-  /* Блок 2: Видео - средняя колонка на всю высоту */
+  
   .videoBlock {
     grid-column: 2;
     grid-row: 1 / -1;
     background: white;
     border-radius: 36px;
-    /* padding: 12px; */
+  
     overflow: hidden;
     min-height: 0;
   }
 
-  /* Блок 4: QR код - правая нижняя */
+  
   .qrCode {
     grid-column: 3;
     grid-row: 2;
@@ -246,20 +241,20 @@
   }
 }
 
-/* === LARGE: 1920px+ === */
+ 
 @media (--large) {
   .mainContent {
-    grid-template-columns: 3fr 5fr 1fr; /* левый 3/9, центр 5/9, sidebar 1/9 */
+  grid-template-columns: 3fr 5fr 1fr; 
     grid-template-rows: 1fr 1fr;
   }
 
-  /* Блок 2: Видео - средняя колонка на всю высоту */
+  
   .videoBlock {
     grid-column: 2;
     grid-row: 1 / -1;
     background: white;
     border-radius: 36px;
-    /* padding: 12px; */
+  
     overflow: hidden;
     min-height: 0;
   }
@@ -292,15 +287,15 @@
   }
 }
 
-/* === Общие стили для контента === */
+ 
 
-/* APK кнопка */
+ 
 .apkButtonContainer {
   display: flex;
   align-items: center;
 }
 
-/* Типографика */
+ 
 .titleSubtitle {
   display: flex;
   flex-direction: column;
@@ -330,14 +325,14 @@
   }
 }
 
-/* Кнопки загрузки */
+ 
 .downloadButtons {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-/* Видео */
+ 
 .video {
   width: 100%;
   height: 100%;
@@ -346,7 +341,7 @@
   display: block;
 }
 
-/* QR код */
+ 
 .qrCode span {
   font-family: Lato, sans-serif;
   font-size: 16px;
@@ -409,7 +404,7 @@
   pointer-events: none;
 }
 
-/* Адаптивная типографика для меньших экранов */
+ 
 @media (--laptop) {
   .title {
     font-size: 48px;
@@ -417,8 +412,8 @@
   }
 
   .qrCode {
-    flex-direction: row; /* на лаптопе горизонтально */
-    justify-content: space-between; /* или center, если нужно */
+    flex-direction: row;
+    justify-content: space-between;
 
     align-items: center;
     padding: 36px;
@@ -450,7 +445,7 @@
   object-fit: contain;
 
   @media (--laptop) {
-    /* grid-template-rows: auto 1fr; */
+    
     max-height: 170px;
   }
 }

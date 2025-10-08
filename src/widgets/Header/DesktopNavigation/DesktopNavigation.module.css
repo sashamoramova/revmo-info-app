@@ -14,23 +14,9 @@
   height: 60px;
   display: flex;
   align-items: center;
-  z-index: 100; /* Меньший z-index чем у бургер-меню */
-
+  z-index: 100; 
   left: 50%;
   transform: translateX(-50%);
-
-  @media (--laptop) {
-    /* right: 223px; */
-  }
-
-  @media (--desktop) {
-    /* right: 382.5px; */
-  }
-
-  @media (--large) {
-    /* right: 622.5px; */
-    /* top: 42px; */
-  }
 }
 
 .backButton {

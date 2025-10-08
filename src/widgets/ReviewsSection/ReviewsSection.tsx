@@ -1,7 +1,6 @@
 import { ReviewsApi } from "@/entities/reviews/api/reviewsApi";
 import styles from "./ReviewsSection.module.css";
 import { ReviewCard } from "@/entities/reviews/ui/reviewCard";
-// import { Footer } from "../Footer/Footer";
 
 export default async function ReviewsSection() {
   const reviews = await ReviewsApi.getReviews();
@@ -22,7 +21,6 @@ export default async function ReviewsSection() {
           ))}
         </ul>
       </div>
-      {/* <Footer /> */}
     </section>
   );
 }

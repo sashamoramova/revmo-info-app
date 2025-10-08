@@ -30,8 +30,10 @@ export const DesktopVersion = ({ data }: DesktopVersionProps) => {
               <ApkButton label={data.buttons.apk.label} />
             </div>
           )}
-          <h1 className={styles.title}>{data.title}</h1>
-          <p className={styles.subtitle}>{data.subtitle}</p>
+          <div className={styles.titleSubtitle}>
+            <h1 className={styles.title}>{data.title}</h1>
+            <p className={styles.subtitle}>{data.subtitle}</p>
+          </div>
 
           <div className={styles.downloadButtons}>
             {data.buttons.ios.enabled && (
@@ -119,13 +121,14 @@ export const DesktopVersion = ({ data }: DesktopVersionProps) => {
             </div>
             <div>
               {data.sidebar.qr_code.url && (
-                <Image
-                  src={data.sidebar.qr_code.url}
-                  alt="QR Code"
-                  width={140}
-                  height={140}
-                  className={styles.qrLogoOnQr}
-                />
+                // <Image
+                //   src={data.sidebar.qr_code.url}
+                //   alt="QR Code"
+
+                //   className={styles.qrLogoOnQr}
+                // />
+
+                <img src={data.sidebar.qr_code.url} alt="QR Code" className={styles.qrLogoOnQr}/>
               )}
             </div>
           </div>

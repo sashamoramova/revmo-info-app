@@ -1,3 +1,7 @@
+@custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
+@custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
+@custom-media --large (min-width: 1920px);
+
 @media (--desktop), (--large) {
   .watchVideoDiv {
     grid-column: 3;
@@ -38,9 +42,6 @@
     max-width: 220px;
   }
 }
-@custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
-@custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
-@custom-media --large (min-width: 1920px);
 
 /* Основной контейнер - занимает 100% высоты экрана */
 .container {
@@ -78,6 +79,35 @@
   }
 }
 
+.helperContent {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 36px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url("/icons/shadow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media (--laptop) {
+    max-width: 100%;
+    grid-column: 1 / 3;
+    grid-row: 1;
+
+    /* .titleSubtitle {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 500px;
+    } */
+  }
+}
+
 /* Основной контент - использует оставшееся пространство */
 .mainContent {
   flex: 1;
@@ -98,18 +128,6 @@
     /* } */
   }
 
-  /* Блок 1: Хелпер контент - левый верхний, занимает 2 колонки */
-  .helperContent {
-    grid-column: 1 / 3;
-    grid-row: 1;
-    background: white;
-    border-radius: 36px;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
   /* Блок 3: Кнопка видео - левая нижняя, первая колонка */
   .watchVideoDiv {
     grid-column: 1;
@@ -119,8 +137,9 @@
     padding: 36px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    /* align-items: flex-start; */
+    justify-content: space-between;
+    /* gap: 18px; */
     height: 100%;
   }
 
@@ -159,12 +178,12 @@
     grid-row: 2;
     background: white;
     border-radius: 36px;
-    padding: 24px;
+    padding: 36px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
+    justify-content: space-between;
+    /* gap: 12px; */
   }
 
   /* Блок 2: Видео - правая колонка на всю высоту, занимает 2 колонки */
@@ -173,7 +192,7 @@
     grid-row: 1 / -1; /* Занимает все строки */
     background: white;
     border-radius: 36px;
-    padding: 12px;
+    /* padding: 12px; */
     overflow: hidden;
     min-height: 0;
   }
@@ -182,20 +201,8 @@
 /* === DESKTOP: 1440-1919px === */
 @media (--desktop) {
   .mainContent {
-    grid-template-columns: 1fr 1.2fr 1fr; /* 3 колонки */
-    grid-template-rows: 1fr 1fr; /* 2 равные строки */
-  }
-
-  /* Блок 1: Хелпер контент - левая колонка на всю высоту */
-  .helperContent {
-    grid-column: 1;
-    grid-row: 1 / -1;
-    background: white;
-    border-radius: 36px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    grid-template-columns: 4.3fr 3.7fr 1fr; /* левый 4.5/9, центр 3.5/9, sidebar 1/9 */
+    grid-template-rows: 1fr 1fr;
   }
 
   /* Блок 2: Видео - средняя колонка на всю высоту */
@@ -204,22 +211,9 @@
     grid-row: 1 / -1;
     background: white;
     border-radius: 36px;
-    padding: 12px;
+    /* padding: 12px; */
     overflow: hidden;
     min-height: 0;
-  }
-
-  /* Блок 3: Кнопка видео - правая верхняя */
-  .watchVideoDiv {
-    /* grid-column: 3;
-    grid-row: 1;
-    background: white;
-    border-radius: 36px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
   }
 
   /* Блок 4: QR код - правая нижняя */
@@ -234,26 +228,27 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
+
+    .qrLabel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+
+      span {
+        display: flex;
+        flex-direction: column;
+        max-width: 85px;
+      }
+    }
   }
 }
 
 /* === LARGE: 1920px+ === */
 @media (--large) {
   .mainContent {
-    grid-template-columns: 1fr 1.5fr 1fr; /* 3 колонки, средняя шире */
-    grid-template-rows: 1fr 1fr; /* 2 равные строки */
-  }
-
-  /* Блок 1: Хелпер контент - левая колонка на всю высоту */
-  .helperContent {
-    grid-column: 1;
-    grid-row: 1 / -1;
-    background: white;
-    border-radius: 36px;
-    padding: 48px;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
+    grid-template-columns: 3fr 5fr 1fr; /* левый 3/9, центр 5/9, sidebar 1/9 */
+    grid-template-rows: 1fr 1fr;
   }
 
   /* Блок 2: Видео - средняя колонка на всю высоту */
@@ -262,22 +257,9 @@
     grid-row: 1 / -1;
     background: white;
     border-radius: 36px;
-    padding: 12px;
+    /* padding: 12px; */
     overflow: hidden;
     min-height: 0;
-  }
-
-  /* Блок 3: Кнопка видео - правая верхняя */
-  .watchVideoDiv {
-    grid-column: 3;
-    grid-row: 1;
-    background: white;
-    border-radius: 36px;
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
   }
 
   /* Блок 4: QR код - правая нижняя */
@@ -292,6 +274,19 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
+
+    .qrLabel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+
+      span {
+        display: flex;
+        flex-direction: column;
+        max-width: 85px;
+      }
+    }
   }
 }
 
@@ -304,6 +299,13 @@
 }
 
 /* Типографика */
+.titleSubtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 500px;
+}
+
 .title {
   font-family: Lato, sans-serif;
   font-size: 60px;
@@ -314,12 +316,16 @@
 }
 
 .subtitle {
-  font-family: Lato, sans-serif;
+  font-family: Lato;
   font-size: 36px;
   font-style: normal;
   font-weight: 300;
   line-height: 42px;
-  margin: 0;
+
+  @media (--laptop) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 
 /* Кнопки загрузки */
@@ -363,6 +369,7 @@
   transition: transform 0.2s;
   transform-origin: top center;
 }
+
 @media (--laptop) {
   .icon {
     align-self: flex-start;
@@ -376,7 +383,6 @@
 
 .text {
   margin-top: 18px;
-  text-align: left;
   font-family: Lato;
   font-size: 18px;
   font-style: normal;
@@ -388,6 +394,10 @@
   transition: opacity 0.2s, transform 0.2s;
   position: relative;
   max-width: 140px;
+
+  @media (--laptop) {
+    text-align: left;
+  }
 }
 
 .videoButton:hover .text {
@@ -402,11 +412,6 @@
   .title {
     font-size: 48px;
     line-height: 52px;
-  }
-
-  .subtitle {
-    font-size: 28px;
-    line-height: 34px;
   }
 
   .qrCode {
@@ -434,9 +439,16 @@
       }
     }
   }
+}
 
-  .watchVideoDiv .videoButton {
-    align-items: flex-end;
-    justify-content: flex-end;
+.qrLogoOnQr {
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+
+  @media (--laptop) {
+    /* grid-template-rows: auto 1fr; */
+    max-height: 170px;
   }
 }

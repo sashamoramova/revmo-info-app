@@ -1,5 +1,5 @@
 import Head from "next/head";
-// import { Footer } from "@/widgets/Footer/Footer";
+import { Footer } from "@/widgets/Footer/Footer";
 import { Header } from "@/widgets/Header";
 import { MainSection } from "@/widgets/MainSection/MainSection";
 import { MainApi } from "@/entities/main-content/api/mainApi";
@@ -19,7 +19,7 @@ export default async function HomePage() {
         <MainSection data={mainData} />
         <ReviewsSection />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

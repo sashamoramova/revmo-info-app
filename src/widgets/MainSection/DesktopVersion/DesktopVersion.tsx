@@ -59,12 +59,12 @@ export const DesktopVersion = ({ data }: DesktopVersionProps) => {
 
         {data.sidebar.watch_video.enabled && (
           <div className={styles.watchVideoDiv}>
-            {/* <VideoButton videoUrl={data.sidebar.watch_video.url} /> */}
+            {/* <VideoButton videoUrl={data.sidebar.watch_video.url} className={styles.videoButtonStyles} /> */}
             <a
               href={data.sidebar.watch_video.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.videoButton}
+              className={styles.videoButtonStyles}
               style={{
                 display: "flex",
                 flexDirection: "column",

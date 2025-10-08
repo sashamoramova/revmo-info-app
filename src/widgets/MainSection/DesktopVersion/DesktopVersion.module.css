@@ -1,305 +1,451 @@
 @custom-media --laptop (min-width: 1200px) and (max-width: 1439px);
 @custom-media --desktop (min-width: 1440px) and (max-width: 1919px);
 @custom-media --large (min-width: 1920px);
-/* 
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  position: relative;
 
-  @media (--large) {
-    max-height: 1900px;
+@media (--desktop), (--large) {
+  .watchVideoDiv {
+    grid-column: 3;
+    grid-row: 1;
+    background: white;
+    border-radius: 36px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (--desktop), (--large) {
+  .videoButtonStyles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+  }
+  .icon {
+    margin-top: 36px;
+    align-self: center;
+    transition: transform 0.2s;
+    transform-origin: top center;
+  }
+  .text {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.2;
+    color: #222;
+    max-width: 220px;
   }
 }
 
+ 
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 12px;
+}
+
+ 
 .headerInfo {
   display: flex;
   justify-content: space-between;
-  padding: 24px;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 24px;
 }
 
-.logo,
-.downloadAnimation {
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoIcon {
+  height: auto;
 }
 
 .downloadAnimation {
+  display: flex;
+  align-items: center;
+
   @media (--laptop) {
     display: none;
   }
 }
 
-.mainContent {
-  display: grid;
-  gap: 40px;
-  max-height: 100vh;
-
-  @media (--laptop) {
-    grid-template-areas:
-      "helperContent videoBlock"
-      "sidebar videoBlock";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto;
-  }
-
-  @media (--desktop), (--large) {
-    grid-template-areas: "helperContent videoBlock sidebar";
-    grid-template-columns: 1fr 1.2fr 0.7fr;
-    grid-template-rows: 1fr;
-    gap: 80px;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-}
-
 .helperContent {
-  grid-area: helperContent;
+  grid-column: 1;
+  grid-row: 1 / -1;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 36px;
+  padding: 48px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  background-color: var(--color-white);
+  justify-content: space-between;
   background-image: url("/icons/shadow.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-radius: 36px;
-  padding: 48px;
 
   @media (--laptop) {
     max-width: 100%;
-  }
+    grid-column: 1 / 3;
+    grid-row: 1;
 
-  @media (--desktop) {
-    max-width: 500px;
-  }
-
-  @media (--large) {
-    max-width: 100%;
+    
   }
 }
 
-.videoBlock {
-  grid-area: videoBlock;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+ 
+.mainContent {
+  flex: 1;
+  display: grid;
+  gap: 12px;
+  min-height: 0; 
+  overflow: hidden;
+  margin: 24px;
+  margin-top: 0;
+}
 
-  @media (--laptop) {
+ 
+@media (--laptop) {
+  .mainContent {
+  
+  grid-template-columns: 1fr 2fr 3fr; 
+  grid-template-rows: 2fr 1fr; 
+    
+  }
+
+    
+  .watchVideoDiv {
+    grid-column: 1;
+    grid-row: 2;
+    background: white;
+    border-radius: 36px;
+    padding: 36px;
+    padding-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-between;
+    
     height: 100%;
-    max-height: 610px;
-  }
-}
-
-.phoneFrame {
-}
-
-.video {
-  width: 100%;
-  max-height: 100%;
-  border-radius: 22px;
-
-  @media (--laptop) {
-    max-height: 610px;
-  }
-}
-
-.sidebar {
-  grid-area: sidebar;
-  display: flex;
-  gap: 16px;
-  align-items: center;
-
-  @media (--laptop) {
-    flex-direction: row;
-    align-self: flex-start;
-    gap: 24px;
   }
 
-  @media (--desktop), (--large) {
+  .videoButtonStyles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+  }
+
+  .icon {
+    margin-bottom: 16px;
+  }
+
+  .text {
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.2;
+    
+
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+    
+  .qrCode {
+    grid-column: 2;
+    grid-row: 2;
+    background: white;
+    border-radius: 36px;
+    padding: 36px;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    
   }
 
-  @media (--large) {
-    gap: 32px;
+    
+  .videoBlock {
+    grid-column: 3 / 5;
+  grid-row: 1 / -1; 
+    background: white;
+    border-radius: 36px;
+    
+    overflow: hidden;
+    min-height: 0;
   }
+}
+
+ 
+@media (--desktop) {
+  .mainContent {
+  grid-template-columns: 4.3fr 3.7fr 1fr; 
+    grid-template-rows: 1fr 1fr;
+  }
+
+  
+  .videoBlock {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    background: white;
+    border-radius: 36px;
+  
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  
+  .qrCode {
+    grid-column: 3;
+    grid-row: 2;
+    background: white;
+    border-radius: 36px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    .qrLabel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+
+      span {
+        display: flex;
+        flex-direction: column;
+        max-width: 85px;
+      }
+    }
+  }
+}
+
+ 
+@media (--large) {
+  .mainContent {
+  grid-template-columns: 3fr 5fr 1fr; 
+    grid-template-rows: 1fr 1fr;
+  }
+
+  
+  .videoBlock {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    background: white;
+    border-radius: 36px;
+  
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  /* Блок 4: QR код - правая нижняя */
+  .qrCode {
+    grid-column: 3;
+    grid-row: 2;
+    background: white;
+    border-radius: 36px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    .qrLabel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+
+      span {
+        display: flex;
+        flex-direction: column;
+        max-width: 85px;
+      }
+    }
+  }
+}
+
+ 
+
+ 
+.apkButtonContainer {
+  display: flex;
+  align-items: center;
+}
+
+ 
+.titleSubtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 500px;
 }
 
 .title {
   font-family: Lato, sans-serif;
   font-size: 60px;
+  font-style: normal;
   font-weight: 400;
   line-height: 60px;
   margin: 0;
 }
 
 .subtitle {
-  font-family: Lato, sans-serif;
+  font-family: Lato;
   font-size: 36px;
+  font-style: normal;
   font-weight: 300;
   line-height: 42px;
-  margin: 0;
+
+  @media (--laptop) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 
+ 
 .downloadButtons {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
-.watchVideoDiv {
-  background-color: var(--color-white);
-  border-radius: 36px;
-  height: 180px;
-  width: 100%;
-}
-
-.qrCode {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 36px;
-  background-color: var(--color-white);
-  border-radius: 36px;
-  height: 180px;
-
-  .qrLogoOnQr {
-    height: 140px;
-    width: auto;
-  }
-
-  span {
-    text-align: center;
-    font-family: Lato, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    margin: 0;
-  }
-} */
-
-.container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background: #f5f6fa;
-  box-sizing: border-box;
-  padding: 0 36px;
-}
-
-.mainContent {
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  gap: 12px;
-  width: 100%;
-  height: 100%; /* растягиваем на высоту контейнера */
-  align-items: stretch;
-}
-
-/* helperContent (левый блок) */
-.helperContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #fff;
-  border-radius: 24px;
-  padding: 48px;
-}
-
-/* центральный блок с видео */
-.videoBlock {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border-radius: 24px;
-}
-
-.phoneFrame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
+ 
 .video {
-  width: auto;
-  height: 80%;
-  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+  display: block;
 }
 
-/* правая колонка */
-.sidebar {
+ 
+.qrCode span {
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+.videoButtonStyles {
   display: flex;
   flex-direction: column;
-  gap: 12px;
   justify-content: center;
-}
-
-.watchVideoDiv,
-.qrCode {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: #fff;
-  border-radius: 24px;
-  padding: 24px;
+  background: none;
+  border: none;
+  min-height: 120px;
+  position: relative;
+  padding: 36px;
+  margin: 0;
 }
 
-/* -------- АДАПТИВ -------- */
+.icon {
+  margin-top: 0;
+  transition: transform 0.2s;
+  transform-origin: top center;
+}
 
-/* 💻 Laptop: 1200–1439px */
 @media (--laptop) {
-  .mainContent {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "helperContent videoBlock"
-      "helperContent sidebar";
+  .icon {
+    align-self: flex-start;
+    transform-origin: top left;
+  }
+}
+
+.videoButtonStyles:hover .icon {
+  transform: scale(2);
+}
+
+.text {
+  margin-top: 18px;
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 133.333% */
+  color: #222;
+  white-space: pre-line;
+  word-break: break-word;
+  transition: opacity 0.2s, transform 0.2s;
+  position: relative;
+  max-width: 140px;
+
+  @media (--laptop) {
+    text-align: left;
+  }
+}
+
+.videoButtonStyles:hover .text {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
+
+ 
+@media (--laptop) {
+  .title {
+    font-size: 48px;
+    line-height: 52px;
   }
 
-  .helperContent {
-    grid-area: helperContent;
-  }
-
-  .videoBlock {
-    grid-area: videoBlock;
-  }
-
-  .sidebar {
-    grid-area: sidebar;
+  .qrCode {
     flex-direction: row;
-    align-items: stretch;
-  }
+    justify-content: space-between;
 
-  .watchVideoDiv,
-  .qrCode {
-    flex: 1;
+    align-items: center;
+    padding: 36px;
+
+    .qrLabel {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 30px;
+      justify-content: center;
+
+      span {
+        text-align: left;
+        max-width: 91px;
+        font-family: Lato;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
   }
 }
 
-/* 🖥 Desktop: 1440–1919px */
-@media (--desktop) {
-  .mainContent {
-    grid-template-columns: 1fr 1fr 270px;
-    grid-template-rows: 1fr;
-  }
-}
+.qrLogoOnQr {
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 
-/* 🖥 Large: ≥1920px */
-@media (--large) {
-  .mainContent {
-    grid-template-columns: 1fr 1fr 300px;
-    gap: 16px;
-  }
-
-  .helperContent,
-  .videoBlock,
-  .watchVideoDiv,
-  .qrCode {
-    border-radius: 32px;
+  @media (--laptop) {
+    
+    max-height: 170px;
   }
 }

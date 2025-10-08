@@ -1,18 +1,21 @@
 
 import React from "react";
 import styles from "./videoButton.module.css";
-
+import classNames from "classnames"; // или clsx
+// className={styles.videoButton}
 interface VideoButtonProps {
 	// text?: string;
 	videoUrl?: string;
+	className?: string;
 }
 
-export const VideoButton: React.FC<VideoButtonProps> = ({videoUrl }) => (
+export const VideoButton: React.FC<VideoButtonProps> = ({videoUrl, className }) => (
 	<a
 		href={videoUrl}
 		target="_blank"
 		rel="noopener noreferrer"
-		className={styles.videoButton}
+		// className={classNames(styles.videoButton, className)}
+		className={`${styles.videoButton} ${className || ''}`}
 		style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", border: "none", background: "none", padding: 0, cursor: "pointer", textDecoration: "none" }}
 	>
 		<span className={styles.icon}>

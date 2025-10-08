@@ -13,6 +13,30 @@
   align-items: center;
   padding: 12px;
   background-color: var(--color-extra-light);
+
+  @media (--mobile) {
+    height: 193px;
+  }
+
+  @media (--tablet) {
+    height: 139px;
+
+  }
+
+  @media (--laptop) {
+    height: 134px;
+
+  }
+
+  @media (--desktop) {
+    height: 137px;
+
+  }
+
+  @media (--large) {
+    height: 124px;
+
+  }
 }
 
 .content {

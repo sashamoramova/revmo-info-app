@@ -6,43 +6,24 @@
 
 .reviewsSection {
   height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
+  justify-content: flex-end;
   background-image: url("/icons/shadow-reviews.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  @media (--mobile) {
-    padding-top: 0;
-  }
-}
-
-.contentWrapper {
-  width: 100%;
-  height: 100%;
-  padding-top: 80px; /* ← та же высота Header */
-  box-sizing: border-box;
-  overflow-y: auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .descriptionSection {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
   padding: 48px;
   gap: 18px;
-
-  @media (--tablet) {
-    height: 702px;
-  }
 }
 
 .title {
@@ -58,6 +39,10 @@
   @media (--mobile) {
     font-size: 36px;
     line-height: 36px;
+  }
+
+   @media (--tablet) {
+    max-width: 500px;
   }
 }
 
@@ -78,18 +63,21 @@
 }
 
 .sliderContainer {
-  width: 100%;
-  overflow: hidden;
-  padding: 20px 0;
+  display: flex;
+  padding-bottom: 20px;
+
+  /* @media (--mobile) {
+    max-width: 320px;
+  } */
 }
 
 .reviewsList {
+  /* border: 1px solid var(--color-grey); */
   display: flex;
   gap: 24px;
   padding: 20px 12px;
 
-  justify-content: flex-start;
-  align-items: center;
+  list-style: none;
 
   overflow-x: scroll;
   scroll-behavior: smooth;
@@ -112,9 +100,12 @@
 }
 
 .reviewItem {
-  min-width: 220px;
-  max-width: 90vw;
+  /* border: 1px solid var(--color-grey); */
+  max-width: 420px;
   flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 @media (--mobile) {
@@ -124,19 +115,10 @@
   }
 
   .sliderContainer {
-    /* padding-bottom: 0; */
     bottom: 0;
   }
 
   .reviewItem {
     min-width: 180px;
-    max-width: 85vw;
   }
-}
-
-.noJsSlider,
-.reviewsList {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
 }

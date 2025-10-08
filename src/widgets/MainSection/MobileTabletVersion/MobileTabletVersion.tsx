@@ -6,7 +6,6 @@ import AppleButton from "@/shared/ui/platformButton/iosButton";
 import ApkButton from "@/shared/ui/apkButton/apkButton";
 import { VideoButton } from "@/shared/ui/videoButton/videoButton";
 import Image from "next/image";
-// import { VideoBlockScroller } from "./VideoBlockScroller";
 
 interface MobileTabletVersionProps {
   data: IMainContentData;
@@ -64,7 +63,6 @@ export const MobileTabletVersion = ({ data }: MobileTabletVersionProps) => {
             />
           </div>
         </div>
-        {/* <VideoBlockScroller videoUrl={data.videoUrl} /> */}
 
         <div className={styles.bottomActions}>
           {data.sidebar.watch_video.enabled && (

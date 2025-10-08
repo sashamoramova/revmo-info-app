@@ -11,6 +11,7 @@ export default async function HomePage() {
   return (
     <>
       <Head>
+
         <link rel="preload" href="/icons/apk-button.svg" as="image" />
         <link rel="preload" href="/icons/apple-icon.svg" as="image" />
         <link rel="preload" href="/icons/arrow.svg" as="image" />
@@ -37,6 +38,7 @@ export default async function HomePage() {
         <MainSection data={mainData} />
         <ReviewsSection />
       </main>
+
       <Footer />
     </>
   );

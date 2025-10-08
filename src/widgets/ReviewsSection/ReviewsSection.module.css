@@ -13,10 +13,6 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  
-  @media (--tablet),  (--laptop), (--desktop), (--large){
-  /* height: 100vh; */
-  }
 }
 
 .descriptionSection {
